@@ -18,7 +18,7 @@ function testLetVariable() {
 
     console.log("Let Inside if ", a);
   }
-  console.log("Const ", b);
+  console.log("Const outside if ", b);
   console.log("Let After if", a, "\n============================");
 }
 

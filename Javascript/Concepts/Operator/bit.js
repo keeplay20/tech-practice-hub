@@ -1,0 +1,6 @@
+console.log(5 & 1); // Bitwise AND → 101 & 001 = 001 (1)
+console.log(5 | 1); // Bitwise OR →  101 | 001 = 101 (5)
+console.log(5 ^ 1); // Bitwise XOR → 101 ^ 001 = 100 (4)
+console.log(~5); // Bitwise NOT → ~00000101 = 11111010 (-6)
+console.log(5 << 1); // Left shift  → 101 << 1 = 1010 (10)
+console.log(5 >> 1); // Right shift → 101 >> 1 = 10 (2)

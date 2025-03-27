@@ -10,4 +10,4 @@ function findSmallestNumber(num1, num2, num3) {
   return smallest;
 }
 
-console.log(findSmallestNumber(1222, 1110, 112)); // 1
+console.log(findSmallestNumber(112, 112, 112)); // 1

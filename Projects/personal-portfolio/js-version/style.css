@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: #ffffff;
+  background: #000;
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 100px;
+}
+
+.space-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, #0f0f1b, #000);
+  background-image: repeating-radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.05) 1px,
+    transparent 2px
+  );
+  z-index: -1;
+  animation: stars 60s linear infinite;
+}
+
+@keyframes stars {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -1000px 1000px;
+  }
+}
+
+.hero {
+  text-align: center;
+  padding: 6rem 2rem 4rem;
+  background: linear-gradient(to bottom, #0d0d1d, transparent);
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-family: "Orbitron", sans-serif;
+  margin-bottom: 1rem;
+  color: #7dd3fc;
+}
+
+.hero h1 span {
+  color: #38bdf8;
+  text-shadow: 0 0 5px #0ea5e9, 0 0 10px #0ea5e9;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: auto;
+  color: #cbd5e1;
+}
+
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem;
+}
+
+.glass-section {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+  animation: fadeIn 0.8s ease-in-out forwards;
+  opacity: 0;
+}
+
+.glass-section h2 {
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  color: #38bdf8;
+}
+
+.glass-section p {
+  color: #d1d5db;
+  line-height: 1.6;
+}
+
+.project-card {
+  margin-top: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1rem;
+  border-left: 3px solid #3b82f6;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.2);
+}
+
+a {
+  color: #7dd3fc;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.footer {
+  text-align: center;
+  padding: 2rem;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .glass-section {
+    padding: 1.5rem;
+  }
+
+  .project-card {
+    font-size: 0.95rem;
+  }
+}

@@ -20,7 +20,7 @@ const about = createElement("section", "glass-section");
 about.id = "about";
 about.innerHTML = `
   <h2>About Me</h2>
-  <p>I’m a passionate React Native developer with a strong testing background and a love for clean, component-based design. Currently exploring Java, Node.js, and system design to broaden my full-stack capabilities. I build things that look cool and work flawlessly across platforms.</p>
+  <p>I’m a passionate React Native developer with a strong testing background and a love for clean, component-based design. Currently exploring JS, React, React-Native and system design to broaden my dev capabilities. I build things that look cool and work flawlessly across platforms.</p>
 `;
 
 // Projects
@@ -41,6 +41,12 @@ const projectList = [
     description:
       "A pure CSS project featuring a glowing interactive neon button.",
   },
+  {
+    title: "Weather App - Js",
+    link: "https://keeplay20.github.io/tech-practice-hub/Javascript/Small-Projects/WeatherApp/",
+    description:
+      "An aesthetically pleasing weather app built with HTML, CSS, and JavaScript.",
+  },
 ];
 
 projectList.forEach((proj) => {
@@ -58,7 +64,7 @@ const contact = createElement(
   "section",
   "glass-section",
   `<h2>Contact</h2>
-   <p>Email: mandar@example.com</p>
+   <p>Email: mandar.vyas20@gmail.com</p>
    <p>GitHub: <a href="https://github.com/keeplay20" target="_blank">github.com/keeplay20</a></p>`
 );
 

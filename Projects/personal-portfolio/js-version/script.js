@@ -31,7 +31,7 @@ projects.innerHTML = `<h2>Projects</h2>`;
 const projectList = [
   {
     title: "Movie Explorer App",
-    link: "https://github.com/keeplay20/movie-explorer",
+    link: "https://github.com/keeplay20/RNProjects",
     description:
       "Browse and explore movies using TMDB API. Built with React Native and Zustand.",
   },
@@ -43,7 +43,7 @@ const projectList = [
   },
   {
     title: "Weather App - Js",
-    link: "https://keeplay20.github.io/tech-practice-hub/Javascript/Small-Projects/WeatherApp/",
+    link: "https://github.com/keeplay20/tech-practice-hub/tree/main/Javascript/Small-Projects/WeatherApp",
     description:
       "An aesthetically pleasing weather app built with HTML, CSS, and JavaScript.",
   },

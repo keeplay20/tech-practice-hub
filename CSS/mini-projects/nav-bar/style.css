@@ -1,0 +1,139 @@
+:root {
+  --bg: #121212;
+  --text: #ffffff;
+  --accent: #00bcd4;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  scroll-behavior: smooth;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--bg);
+  color: var(--text);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInNav 0.6s ease forwards;
+  transition: box-shadow 0.3s ease;
+}
+
+nav.shadow {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  position: relative;
+  padding: 5px;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background-color: var(--accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.hamburger:hover {
+  transform: scale(1.1);
+}
+
+.theme-toggle {
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: 1rem;
+  transition: transform 0.4s ease;
+}
+
+.theme-toggle:active {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background-color: var(--bg);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    width: 60%;
+    padding: 1.5rem;
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+    animation: slideIn 0.4s ease forwards;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+section {
+  padding: 100px 20px;
+  border-bottom: 1px solid #333;
+}
+
+/* Animations */
+@keyframes fadeInNav {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

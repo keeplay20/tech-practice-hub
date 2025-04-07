@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="./weather.css" />
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  </head>
+  <body>
+    <div class="theme-toggle">
+      <button id="toggleTheme">🌙</button>
+    </div>
+    <div class="app">
+      <div class="weather-app">
+        <div class="lottie-container" id="weatherAnimation"></div>
+        <h1>Weather App</h1>
+        <input type="text" id="searchInput" placeholder="Enter City Name" />
+        <button id="searchBtn" disabled>Search</button>
+
+        <div id="weatherResult"></div>
+      </div>
+    </div>
+
+    <script src="./weather.js"></script>
+  </body>
+</html>

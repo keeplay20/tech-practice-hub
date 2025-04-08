@@ -27,11 +27,6 @@
       <img src="https://github-readme-streak-stats.herokuapp.com?user=keeplay20&theme=tokyonight" alt="GitHub Streak" height="200"/>
     </td>
     <td>
-      <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=keeplay20&theme=tokyonight" alt="Contribution Summary" height="200"/>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="3" align="center">
       <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=keeplay20&layout=compact&theme=tokyonight" alt="Top Languages" />
     </td>
   </tr>

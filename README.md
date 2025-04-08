@@ -4,11 +4,6 @@
 <p align="center">
   <b>🚀 A personal knowledge vault & practice lab for mastering full-stack development, system design, AI, and more.</b>
 </p>
-
-<p align="center">
-  <img src="https://komarev.com/ghpvc/?username=keeplay20&label=👀%20Visitors&color=blueviolet&style=flat-square" alt="Visitor Badge"/>
-</p>
-
 ---
 
 ## 📂 Folder Structure Overview

@@ -4,6 +4,7 @@
 <p align="center">
   <b>🚀 A personal knowledge vault & practice lab for mastering full-stack development, system design, AI, and more.</b>
 </p>
+
 ---
 
 ## 📂 Folder Structure Overview

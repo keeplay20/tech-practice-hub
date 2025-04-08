@@ -16,18 +16,22 @@
 
 ---
 
-## 📊 GitHub Stats
+## 📊 GitHub Stats & Activity
+
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=keeplay20&label=👀%20Visitors&color=blueviolet&style=flat-square" alt="Visitor Badge"/>
+</p>
 
 <table>
   <tr>
     <td>
-      <img src="https://github-readme-stats.vercel.app/api?username=keeplay20&show_icons=true&theme=tokyonight" alt="GitHub Stats" height="200"/>
+      <img src="https://github-readme-stats.vercel.app/api?username=keeplay20&show_icons=true&theme=radical" alt="GitHub Stats" height="200"/>
     </td>
     <td>
-      <img src="https://github-readme-streak-stats.herokuapp.com?user=keeplay20&theme=tokyonight" alt="GitHub Streak" height="200"/>
+      <img src="https://github-readme-streak-stats.herokuapp.com?user=keeplay20&theme=radical" alt="GitHub Streak" height="200"/>
     </td>
     <td>
-      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=keeplay20&layout=compact&theme=tokyonight" alt="Top Languages" />
+      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=keeplay20&layout=compact&theme=radical" alt="Top Languages" height="200"/>
     </td>
   </tr>
 </table>

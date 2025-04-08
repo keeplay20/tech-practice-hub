@@ -1,5 +1,3 @@
-Folder Structure Overview
-
 ## 📂 Folder Structure Overview
 
 | Folder           | Description                                                       |
@@ -16,6 +14,18 @@ Folder Structure Overview
 | AI/              | Basic AI/ML model practice and small AI projects.                 |
 | Tech-Refinement/ | Notes, best practices, and latest trends in software development. |
 
-👨‍💻 Contributions & Usage
+---
 
-This repository is primarily for personal learning. Feel free to fork, use, and refer to the structured content. Contributions, suggestions, or PRs are welcome!
+## 🔥 GitHub Contribution Streak
+
+<p align="center">
+  <img src="https://streak-stats.demolab.com?user=keeplay20&theme=tokyonight&hide_border=true&date_format=M%20j%5B%2C%20Y%5D" alt="GitHub Streak"/>
+</p>
+
+---
+
+## 👨‍💻 Contributions & Usage
+
+This repository is primarily for personal learning.  
+Feel free to fork, use, and refer to the structured content.  
+✅ Contributions, suggestions, or PRs are welcome!

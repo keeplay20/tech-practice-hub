@@ -27,7 +27,7 @@ toggleThemeBtn.addEventListener("click", () => {
 });
 
 const getWeatherByCity = async (city) => {
-  const WEATHER_URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${WEATHER_***REMOVED***}&units=metric`;
+  const WEATHER_URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${WEATHER_API_KEY}&units=metric`;
   try {
     const response = await fetch(WEATHER_URL);
     if (!response.ok) {

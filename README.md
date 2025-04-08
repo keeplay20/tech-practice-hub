@@ -1,26 +1,35 @@
-## 📂 Folder Structure Overview
+<!-- HEADER SECTION -->
+<h1 align="center">📚 Tech Practice Hub</h1>
 
-| Folder           | Description                                                       |
-| ---------------- | ----------------------------------------------------------------- |
-| CSS/             | Mini projects using CSS only.                                     |
-| JavaScript/      | Concepts, small projects, and interview questions on JS.          |
-| TypeScript/      | Core TS concepts, usage, mini apps, and interview prep.           |
-| React-Native/    | React Native concepts, components, small apps, and interview Qs.  |
-| GraphQL/         | GraphQL queries, mutations, server setup, and practice problems.  |
-| AWS/             | AWS services, setup tutorials, hands-on configurations.           |
-| DSA/             | Data Structures & Algorithms categorized by topic.                |
-| HLD/             | High-Level Design system case studies and architecture diagrams.  |
-| LLD/             | Low-Level Design patterns and system design problem solutions.    |
-| AI/              | Basic AI/ML model practice and small AI projects.                 |
-| Tech-Refinement/ | Notes, best practices, and latest trends in software development. |
-
----
-
-## 📊 GitHub Stats & Activity
+<p align="center">
+  <b>🚀 A personal knowledge vault & practice lab for mastering full-stack development, system design, AI, and more.</b>
+</p>
 
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=keeplay20&label=👀%20Visitors&color=blueviolet&style=flat-square" alt="Visitor Badge"/>
 </p>
+
+---
+
+## 📂 Folder Structure Overview
+
+| Folder           | Description                                                    |
+|------------------|----------------------------------------------------------------|
+| `CSS/`           | Mini projects using pure CSS (animations, layouts, themes).   |
+| `JavaScript/`    | Core JS concepts, small apps, and coding interviews.          |
+| `TypeScript/`    | Strongly typed practice with concepts and apps.               |
+| `React-Native/`  | Mobile app development with React Native and components.      |
+| `GraphQL/`       | Queries, mutations, Apollo client/server examples.            |
+| `AWS/`           | AWS service demos and deployment guides.                      |
+| `DSA/`           | Data structures & algorithms by topic with code & theory.     |
+| `HLD/`           | High-Level System Design diagrams, case studies.              |
+| `LLD/`           | Low-Level Design, OOP design patterns and practices.          |
+| `AI/`            | AI/ML basics, small Python projects, and model playgrounds.   |
+| `Tech-Refinement/` | Dev best practices, tooling, productivity hacks, etc.      |
+
+---
+
+## 📊 GitHub Stats & Activity
 
 <table>
   <tr>
@@ -40,21 +49,26 @@
 
 ## 🛠️ Tools & Technologies
 
-![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![React Native](https://img.shields.io/badge/-React%20Native-61DAFB?style=flat-square&logo=react&logoColor=black)
-![GraphQL](https://img.shields.io/badge/-GraphQL-E10098?style=flat-square&logo=graphql&logoColor=white)
-![Node.js](https://img.shields.io/badge/-Node.js-339933?style=flat-square&logo=node.js&logoColor=white)
-![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/-CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=html,css,js,ts,react,nextjs,nodejs,graphql,aws,git,github,figma,vscode&theme=dark" />
+</p>
+
 ---
 
-## 💬 Let's Connect
+## 🤝 Let's Connect
 
-[![LinkedIn](https://img.shields.io/badge/-mandarvyas-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/mandarvyas)](https://www.linkedin.com/in/mandarvyas)
-[![GitHub](https://img.shields.io/badge/-keeplay20-black?style=flat-square&logo=github&logoColor=white&link=https://github.com/keeplay20)](https://github.com/keeplay20)
+<p align="center">
+  <a href="https://www.linkedin.com/in/mandar-vyas/" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin" />
+  </a>
+  <a href="mailto:mandar.vyas20@gmail.com">
+    <img src="https://img.shields.io/badge/Gmail-red?style=for-the-badge&logo=gmail&logoColor=white" />
+  </a>
+  <a href="https://keeplay20.github.io">
+    <img src="https://img.shields.io/badge/Portfolio-grey?style=for-the-badge&logo=firefox-browser&logoColor=white" />
+  </a>
+</p>
 
-## 👨‍💻 Contributions & Usage
+---
 
-This repository is primarily for personal learning.  
-Feel free to fork, use, and refer to the structured content.  
-✅ Contributions, suggestions, or PRs are welcome!
+> 🧠 *This repo is built with discipline, passion, and a love for tech. Contributions, feedback, and forks are welcome!*

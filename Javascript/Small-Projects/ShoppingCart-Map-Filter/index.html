@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Shopping Cart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>🛒 My Shopping Cart</h1>
+
+      <div class="filter">
+        <label for="categoryFilter">Filter by category</label>
+        <select id="categoryFilter">
+          <option value="all">All</option>
+          <option value="clothing">Clothing</option>
+          <option value="electronics">Electronics</option>
+        </select>
+        <button id="applyFilter">Apply Filter</button>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Qty</th>
+            <th>Category</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <tbody id="cartBody"></tbody>
+      </table>
+
+      <div class="total">💰 Total: $<span id="totalAmount"></span></div>
+    </div>
+    <script src="./main.js"></script>
+  </body>
+</html>

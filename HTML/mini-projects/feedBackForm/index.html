@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feedback Form</title>
+  </head>
+  <body>
+    <main>
+      <h1>We'd love to hear from you!</h1>
+      <form method="post" action="index.html">
+        <label for="name">Name</label>
+        <input name="Name" id="name" type="text" placeholder="Enter Name" />
+        <label for="email">Email</label>
+        <input name="Email" id="email" type="email" placeholder="Enter Email" />
+        <label for="phone">Phone</label>
+        <input name="Phone" id="phone" type="tel" placeholder="Enter Phone" />
+        <label for="food">How was the food ?</label>
+        <select name="food" id="food">
+          <option value="best">Best</option>
+          <option value="worst">Worst</option>
+        </select>
+        <label for="message" id="message">Give your opinion</label>
+        <textarea
+          name="message"
+          id="message"
+          placeholder="Enter Message"
+        ></textarea>
+        <span>Are you a new customer ?</span>
+        <input
+          type="radio"
+          id="newCustomerYes"
+          value="yes"
+          name="newCustomer"
+        />
+        <label for="newCustomerYes">Yes</label>
+        <input type="radio" id="newCustomerNo" value="no" name="newCustomer" />
+        <label for="newCustomerNo">No</label>
+
+        <span>Would you like to come again ?</span>
+        <input type="checkbox" id="comeAgain" name="comeAgain" value="yes" />
+        <button type="submit">Submit</button>
+      </form>
+      <p><em>We'll get back to you within 24 hours.</em></p>
+    </main>
+  </body>
+</html>

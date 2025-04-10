@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accessible Resume - Mandar</title>
+  </head>
+  <body>
+    <header>
+      <h1>Mandar Vyas</h1>
+      <p>Frontend Developer | React Native | JavaScript</p>
+      <img
+        src="mandar-profile.jpg"
+        alt="Mandar Vyas smiling in front of a laptop"
+        width="150"
+      />
+      <nav aria-label="Resume Navigation">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="about">
+        <h2>About Me</h2>
+        <p>
+          Passionate frontend developer with 9+ years of experience in web and
+          mobile testing and development. Skilled in JavaScript, React Native,
+          and building accessible, user-friendly UIs.
+        </p>
+      </section>
+
+      <section id="experience">
+        <h2>Professional Experience</h2>
+        <article aria-labelledby="role1">
+          <h3 id="role1">React Native Developer – XYZ Corp</h3>
+          <p><strong>2022 - Present</strong></p>
+          <ul>
+            <li>
+              Built mobile features like “My Balance” and onboarding pages using
+              React Native.
+            </li>
+            <li>Led SDLC for full-stack app modules with React + Node.js.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="skills">
+        <h2>Skills</h2>
+        <ul>
+          <li>React Native</li>
+          <li>JavaScript / TypeScript</li>
+          <li>HTML5 & CSS3</li>
+          <li>Accessibility (a11y)</li>
+        </ul>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:mandar@example.com">mandar@example.com</a></p>
+        <p>
+          LinkedIn:
+          <a
+            href="https://linkedin.com/in/mandar"
+            target="_blank"
+            rel="noopener"
+            >linkedin.com/in/mandar</a
+          >
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Mandar Patil</p>
+    </footer>
+  </body>
+</html>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Feedback Form</title>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <main>
@@ -20,25 +21,35 @@
           <option value="best">Best</option>
           <option value="worst">Worst</option>
         </select>
-        <label for="message" id="message">Give your opinion</label>
+        <label for="message">Give your opinion</label>
         <textarea
           name="message"
           id="message"
           placeholder="Enter Message"
         ></textarea>
-        <span>Are you a new customer ?</span>
-        <input
-          type="radio"
-          id="newCustomerYes"
-          value="yes"
-          name="newCustomer"
-        />
-        <label for="newCustomerYes">Yes</label>
-        <input type="radio" id="newCustomerNo" value="no" name="newCustomer" />
-        <label for="newCustomerNo">No</label>
+        <div class="radio-group">
+          <span>Are you a new customer?</span>
+          <input
+            type="radio"
+            id="newCustomerYes"
+            value="yes"
+            name="newCustomer"
+          />
+          <label for="newCustomerYes">Yes</label>
+          <input
+            type="radio"
+            id="newCustomerNo"
+            value="no"
+            name="newCustomer"
+          />
+          <label for="newCustomerNo">No</label>
+        </div>
 
-        <span>Would you like to come again ?</span>
-        <input type="checkbox" id="comeAgain" name="comeAgain" value="yes" />
+        <div class="checkbox-group">
+          <span>Would you like to come again?</span>
+          <input type="checkbox" id="comeAgain" name="comeAgain" value="yes" />
+          <label for="comeAgain">Yes</label>
+        </div>
         <button type="submit">Submit</button>
       </form>
       <p><em>We'll get back to you within 24 hours.</em></p>

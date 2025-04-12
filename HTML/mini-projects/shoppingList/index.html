@@ -3,62 +3,86 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shopping List</title>
+    <title>Grocery List</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <main>
-      <h1><em> My Grocery List</em></h1>
+      <h1><em>My Grocery List</em></h1>
       <p>“Here's what I need to pick up during my weekly grocery run.”</p>
+
+      <!-- Controls for adding and searching items -->
+      <div class="controls">
+        <input type="text" id="itemInput" placeholder="Add new item..." />
+        <select id="categorySelect">
+          <option value="Fruits">Fruits</option>
+          <option value="Vegetables">Vegetables</option>
+          <option value="Dairy">Dairy</option>
+        </select>
+        <button id="addBtn">Add</button>
+      </div>
+
+      <div class="controls">
+        <input type="text" id="searchInput" placeholder="Search items..." />
+      </div>
+
+      <!-- Grocery List Categories -->
       <h2>Category</h2>
       <ul>
         <li>
           Fruits
-          <ul>
-            <li>Apple</li>
-            <li>Banana</li>
-            <li>Grapes</li>
-            <li>Mangoes</li>
+          <ul id="fruitsList">
+            <li>Apple <button class="deleteBtn">🗑️</button></li>
+            <li>Banana <button class="deleteBtn">🗑️</button></li>
+            <li>Grapes <button class="deleteBtn">🗑️</button></li>
+            <li>Mangoes <button class="deleteBtn">🗑️</button></li>
           </ul>
         </li>
         <li>
           Vegetables
-          <ul>
-            <li>Carrot</li>
-            <li>Broccoli</li>
-            <li>Spinach</li>
-            <li>Potato</li>
+          <ul id="vegetablesList">
+            <li>Carrot <button class="deleteBtn">🗑️</button></li>
+            <li>Broccoli <button class="deleteBtn">🗑️</button></li>
+            <li>Spinach <button class="deleteBtn">🗑️</button></li>
+            <li>Potato <button class="deleteBtn">🗑️</button></li>
           </ul>
         </li>
         <li>
           Dairy
-          <ul>
-            <li>Milk</li>
-            <li>Cheese</li>
-            <li>Yogurt</li>
+          <ul id="dairyList">
+            <li>Milk <button class="deleteBtn">🗑️</button></li>
+            <li>Cheese <button class="deleteBtn">🗑️</button></li>
+            <li>Yogurt <button class="deleteBtn">🗑️</button></li>
           </ul>
         </li>
       </ul>
+
       <hr />
+
+      <!-- Shopping Plan -->
       <h2>Shopping Plan</h2>
       <ol>
         <li>Check kitchen for current items</li>
-        <li>Note whats missing</li>
+        <li>Note what's missing</li>
         <li>Make a budget</li>
         <li>Go to store</li>
-        <li>Buy an item</li>
+        <li>Buy items</li>
         <li>Return and organize</li>
       </ol>
+
       <hr />
+
       <p>
         <a
           href="https://www.google.com"
-          rel="noopener noreferrer"
           target="_blank"
+          rel="noopener noreferrer"
         >
           Refer for more
         </a>
       </p>
     </main>
+
+    <script src="script.js"></script>
   </body>
 </html>

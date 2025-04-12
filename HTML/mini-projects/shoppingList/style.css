@@ -63,3 +63,45 @@ ul ul {
     font-size: 0.95rem;
   }
 }
+
+/* Input, select, and button styles */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.controls input,
+.controls select,
+.controls button {
+  padding: 0.6rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.controls button {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s ease;
+}
+
+.controls button:hover {
+  background-color: #0056b3;
+}
+
+/* Delete button inside list item */
+li button {
+  background-color: transparent;
+  border: none;
+  color: red;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+li button:hover {
+  text-decoration: underline;
+}

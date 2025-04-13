@@ -26,6 +26,7 @@ export default function Contact() {
           href="https://www.linkedin.com/in/mandar-vyas/"
           target="_blank"
           rel="noopener noreferrer"
+          className={styles.iconLink}
         >
           <FaLinkedin size={32} />
         </a>
@@ -33,10 +34,11 @@ export default function Contact() {
           href="https://github.com/keeplay20"
           target="_blank"
           rel="noopener noreferrer"
+          className={styles.iconLink}
         >
           <FaGithub size={32} />
         </a>
-        <a href="mailto:mandar.vyas20@gmail.com">
+        <a href="mailto:mandar.vyas20@gmail.com" className={styles.iconLink}>
           <FaEnvelope size={32} />
         </a>
       </motion.div>

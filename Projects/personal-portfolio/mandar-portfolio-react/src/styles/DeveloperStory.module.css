@@ -1,11 +1,9 @@
-/* DeveloperStory.module.css */
-
 /* Default Dot Styling */
 .dot {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background-color: #38bdf8; /* Light Sky Blue for default dot */
+  background-color: #38bdf8; /* Sky blue for default dot */
   margin-right: 15px;
   transition: all 0.3s ease;
 }
@@ -64,22 +62,23 @@
   width: 100%;
   padding: 3rem 2rem;
   margin: 0;
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 12px;
+  background: linear-gradient(135deg, #0f172a, #1e293b); /* Matching gradient */
+  border-radius: 16px; /* Consistent border radius */
   backdrop-filter: blur(6px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .heading {
   text-align: center;
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin-bottom: 2rem;
-  color: #e2e8f0; /* Light gray text color for consistency */
+  color: #38bdf8; /* Sky blue heading */
+  font-weight: 600;
 }
 
 .timeline {
   position: relative;
-  border-left: 3px solid #38bdf8; /* Using sky-blue for consistency */
+  border-left: 3px solid #38bdf8; /* Sky blue for timeline line */
   padding-left: 1.5rem;
 }
 
@@ -102,13 +101,13 @@
 .content h3 {
   font-size: 1.1rem;
   margin: 0;
-  color: #e2e8f0;
+  color: #e2e8f0; /* Light gray for step titles */
 }
 
 .content p {
   font-size: 0.95rem;
   margin-top: 0.25rem;
-  color: #cbd5e1; /* Soft light-blue-gray for consistency */
+  color: #cbd5e1; /* Light-gray text for description */
 }
 
 @media (max-width: 600px) {

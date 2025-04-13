@@ -11,28 +11,19 @@
 }
 
 .sdetBackground {
-  background: linear-gradient(
-    135deg,
-    #2c3e50,
-    #4ca1af
-  ); /* Softer testing palette */
+  background: linear-gradient(135deg, #2c3e50, #4ca1af);
   color: #ffffff;
 }
 
 .sdeBackground {
-  background: linear-gradient(
-    135deg,
-    #0f2027,
-    #203a43,
-    #2c5364
-  ); /* Deep tech blue gradient */
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   color: #ffffff;
 }
 
 .title {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  color: #38bdf8; /* Sky blue */
+  color: #38bdf8;
 }
 
 .animation {
@@ -78,5 +69,12 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Add padding to Hero on mobile to account for fixed navbar */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 120px; /* Adds extra padding on top to avoid overlap */
   }
 }

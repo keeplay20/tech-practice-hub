@@ -1,5 +1,4 @@
-/* Navbar.module.css */
-
+/* Default navbar styles */
 .navbar {
   background-color: #0f172a; /* Consistent with other sections */
   padding: 1rem 2rem;
@@ -9,11 +8,12 @@
   z-index: 1000;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
-  justify-content: space-between; /* Pushes nav links to the left and button to the right */
+  justify-content: space-between; /* Space out the nav links and button */
   align-items: center;
   transition: all 0.3s ease-in-out;
 }
 
+/* Navbar Links Container */
 .navLinks {
   display: flex;
   gap: 2rem;
@@ -21,28 +21,24 @@
 }
 
 .navLink {
-  color: #e2e8f0; /* Light text color */
+  color: #e0e4f1; /* Light gray to match the overall color scheme */
   text-decoration: none;
-  font-size: 1.1rem; /* Same size for uniform look */
+  font-size: 1.1rem; /* Uniform text size */
   font-weight: 500;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px; /* Slight letter spacing for readability */
   transition: color 0.3s ease, transform 0.3s ease;
   padding: 0.5rem 1rem;
   border-radius: 8px;
 }
 
 .navLink:hover {
-  color: #38bdf8; /* Sky blue, matching the hover effect of other sections */
-  transform: scale(1.05);
+  color: #38bdf8; /* Bright blue color for hover effect */
+  transform: scale(1.05); /* Slight zoom effect on hover */
 }
 
 .activeLink {
   color: #38bdf8; /* Active link color */
   font-weight: 700;
-}
-
-.navbar a {
-  text-align: center;
 }
 
 /* Download Resume Button */
@@ -60,27 +56,26 @@
 
 .downloadButton:hover {
   background-color: #0284c7; /* Darker blue on hover */
-  transform: scale(1.05);
+  transform: scale(1.05); /* Hover zoom effect */
 }
 
-/* Optional: Add a responsive design for smaller screens */
+/* Mobile responsive design */
 @media (max-width: 768px) {
   .navbar {
-    padding: 1rem;
+    padding: 1rem 1.5rem; /* Adjust padding for smaller screens */
   }
 
   .navLinks {
-    flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem; /* Less space between links on mobile */
+    flex-wrap: wrap; /* Allow links to wrap on smaller screens */
   }
 
   .navLink {
-    font-size: 1.2rem;
+    font-size: 1rem; /* Smaller font size for mobile */
   }
 
   .downloadButton {
-    margin-top: 1rem;
-    font-size: 1.1rem;
-    padding: 12px 24px;
+    padding: 0.6rem 1.2rem; /* Smaller button padding */
+    margin-top: 1rem; /* Space between button and navbar links */
   }
 }

@@ -1,0 +1,126 @@
+/* DeveloperStory.module.css */
+
+/* Default Dot Styling */
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #38bdf8; /* Light Sky Blue for default dot */
+  margin-right: 15px;
+  transition: all 0.3s ease;
+}
+
+/* Active Dot Styling - For all active steps (without glow) */
+.step.active .dot {
+  background-color: #00ff87; /* Light Green for active steps */
+}
+
+/* SDET Role: Non-active dots in SDET role will be orange */
+.step.sdet .dot {
+  background-color: #ff5722; /* Orange for non-active steps in SDET */
+}
+
+/* SDET Active Dot Styling */
+.step.sdet.active .dot {
+  background-color: #00ff87; /* Green glow for active dot in SDET role */
+}
+
+/* Glowing effect for the last dot only */
+.step.last .dot {
+  animation: expandPulse 1.8s infinite ease-in-out; /* Glowing effect for the last dot */
+}
+
+/* Pulse animation for regular active dots */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0px #5fdbff;
+  }
+  50% {
+    box-shadow: 0 0 15px #5fdbff;
+  }
+  100% {
+    box-shadow: 0 0 0px #5fdbff;
+  }
+}
+
+/* Expanding and contracting effect for the last dot */
+@keyframes expandPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+
+/* Styling for the Story Section */
+.story {
+  width: 100%;
+  padding: 3rem 2rem;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.heading {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #e2e8f0; /* Light gray text color for consistency */
+}
+
+.timeline {
+  position: relative;
+  border-left: 3px solid #38bdf8; /* Using sky-blue for consistency */
+  padding-left: 1.5rem;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.step:hover {
+  transform: translateY(-4px);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.content h3 {
+  font-size: 1.1rem;
+  margin: 0;
+  color: #e2e8f0;
+}
+
+.content p {
+  font-size: 0.95rem;
+  margin-top: 0.25rem;
+  color: #cbd5e1; /* Soft light-blue-gray for consistency */
+}
+
+@media (max-width: 600px) {
+  .timeline {
+    padding-left: 1rem;
+  }
+
+  .content h3 {
+    font-size: 1rem;
+  }
+
+  .content p {
+    font-size: 0.85rem;
+  }
+}

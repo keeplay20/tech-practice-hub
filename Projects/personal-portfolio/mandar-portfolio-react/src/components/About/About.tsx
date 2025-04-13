@@ -34,14 +34,6 @@ export default function About() {
           automated testing as well as full-stack development. My goal is to
           build innovative and user-friendly applications.
         </motion.p>
-
-        <motion.button
-          className={styles.ctaButton}
-          whileHover={{ scale: 1.05 }}
-          onClick={() => alert("Let's Connect!")}
-        >
-          Let's Connect
-        </motion.button>
       </motion.div>
 
       <motion.img

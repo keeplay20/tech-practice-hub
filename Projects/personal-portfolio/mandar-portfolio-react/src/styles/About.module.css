@@ -4,12 +4,9 @@
   justify-content: center;
   gap: 2rem;
   padding: 3rem 2rem;
-  background: linear-gradient(
-    135deg,
-    #1a1a1a,
-    #2c3e50
-  ); /* Darker gradient for consistency */
-  border-radius: 12px;
+  background: linear-gradient(135deg, #0f172a, #1e293b); /* Matching gradient */
+  border-radius: 16px; /* Matching border radius */
+  color: #f8fafc; /* Light text color */
 }
 
 .avatar {
@@ -18,10 +15,12 @@
   border-radius: 50%;
   object-fit: cover;
   transition: transform 0.3s ease;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3); /* Added shadow for consistency */
 }
 
 .avatar:hover {
   transform: scale(1.1);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4); /* Enhanced hover effect */
 }
 
 .textContainer {
@@ -32,7 +31,8 @@
 .heading {
   font-size: 2.5rem;
   font-weight: 600;
-  color: #e2e8f0; /* Light gray text color for consistency */
+  color: #38bdf8; /* Sky blue, consistent with other components */
+  margin-bottom: 1.5rem;
 }
 
 .description {
@@ -50,6 +50,7 @@
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 1.5rem; /* Added space between button and description */
 }
 
 .ctaButton:hover {
@@ -65,5 +66,14 @@
 
   .avatar {
     margin-bottom: 1.5rem;
+  }
+
+  .heading {
+    font-size: 2rem;
+  }
+
+  .ctaButton {
+    padding: 10px 20px;
+    font-size: 1.1rem;
   }
 }

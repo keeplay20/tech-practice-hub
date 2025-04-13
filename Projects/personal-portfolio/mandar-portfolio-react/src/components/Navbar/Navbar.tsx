@@ -11,10 +11,10 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
   };
 
   const handleDownloadResume = () => {
-    const resumeLink = "/path/to/your/resume.pdf";
+    const resumeLink = `${import.meta.env.BASE_URL}MandarVyas.pdf`;
     const link = document.createElement("a");
     link.href = resumeLink;
-    link.download = "Resume.pdf";
+    link.download = "MandarVyasResume.pdf";
     link.click();
   };
 

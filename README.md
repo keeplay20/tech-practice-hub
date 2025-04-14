@@ -60,7 +60,7 @@
   <a href="mailto:mandar.vyas20@gmail.com">
     <img src="https://img.shields.io/badge/Gmail-red?style=for-the-badge&logo=gmail&logoColor=white" />
   </a>
-  <a href="https://keeplay20.github.io">
+  <a href="https://keeplay20.github.io/tech-practice-hub/">
     <img src="https://img.shields.io/badge/Portfolio-grey?style=for-the-badge&logo=firefox-browser&logoColor=white" />
   </a>
 </p>

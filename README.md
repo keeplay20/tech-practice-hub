@@ -67,4 +67,10 @@
 
 ---
 
+## 🤝 Give A Star
+
+<p align="center"> You can also give this repository a star to show more people and they can use this repository. </p>
+
+---
+
 > 🧠 *This repo is built with discipline, passion, and a love for tech. Contributions, feedback, and forks are welcome!*

@@ -11,6 +11,7 @@
   justify-content: space-between; /* Space out the nav links and button */
   align-items: center;
   transition: all 0.3s ease-in-out;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
 /* Navbar Links Container */

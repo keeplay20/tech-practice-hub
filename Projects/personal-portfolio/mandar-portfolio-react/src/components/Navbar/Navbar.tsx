@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../../styles/Navbar.module.css";
+import emailjs from "emailjs-com";
 
 interface NavbarProps {
   activeSection: string;
@@ -11,11 +12,36 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
   };
 
   const handleDownloadResume = () => {
+    // Trigger file download
     const resumeLink = `${import.meta.env.BASE_URL}MandarVyas.pdf`;
     const link = document.createElement("a");
     link.href = resumeLink;
     link.download = "MandarVyasResume.pdf";
     link.click();
+
+    // Send an email notification via EmailJS
+    const templateParams = {
+      to_name: "Mandar Vyas", // Your name or company name
+      from_name: "Portfolio Visitor", // Name of the person visiting your portfolio
+      message: "Someone downloaded the resume from the portfolio.",
+    };
+
+    // Send email using EmailJS with the public key (use it as the user ID)
+    emailjs
+      .send(
+        "service_dsabn5s", // Your Service ID
+        "template_aoslhpk", // Your Template ID
+        templateParams,
+        "UoOUeIiY8Sqkygo1J" // Replace with your Public Key from EmailJS
+      )
+      .then(
+        (response) => {
+          console.log("Email sent successfully", response);
+        },
+        (error) => {
+          console.error("Failed to send email", error);
+        }
+      );
   };
 
   return (

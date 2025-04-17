@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulated Button Click</title>
+    <style>
+      body {
+        font-family: Arial;
+        text-align: center;
+        margin-top: 100px;
+      }
+
+      button {
+        font-size: 1.2rem;
+        padding: 10px 20px;
+        background-color: #222;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #444;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Click the Button!</h1>
+    <button id="greetBtn">Say Hello</button>
+
+    <script>
+      // Callback function
+      function onButtonClick() {
+        alert("Hello, Mandar! 🎉 This is a callback in action.");
+      }
+
+      // Simulated event handler
+      function simulateClick(buttonId, callback) {
+        const btn = document.getElementById(buttonId);
+        if (btn) {
+          btn.addEventListener("click", callback);
+        }
+      }
+
+      // Register the click event with a callback
+      simulateClick("greetBtn", onButtonClick);
+    </script>
+  </body>
+</html>

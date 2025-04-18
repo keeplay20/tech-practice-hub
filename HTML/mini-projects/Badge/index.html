@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pseudo-Elements Example</title>
+    <style>
+      .badge {
+        display: inline-block;
+        background-color: #ff6347;
+        padding: 10px 20px;
+        color: white;
+        border-radius: 50px;
+        font-weight: bold;
+        position: relative;
+      }
+
+      /* Pseudo-element before the text */
+      .badge::before {
+        content: "🌟";
+        margin-right: 8px; /* Spacing between the icon and text */
+      }
+
+      .badge::after {
+        content: "🎉";
+        margin-left: 8px; /* Spacing between the icon and text */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="badge">Best Offer</div>
+  </body>
+</html>

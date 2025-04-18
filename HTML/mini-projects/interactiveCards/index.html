@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Card</title>
+    <style>
+      /* Fade in animation on load */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      body {
+        font-family: sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #f5f5f5;
+      }
+
+      .card {
+        width: 300px;
+        border-radius: 16px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        background: white;
+        padding: 20px;
+        position: relative;
+        animation: fadeIn 0.6s ease-out forwards;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      /* :hover state */
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      /* :active state (when clicked) */
+      .card:active {
+        transform: scale(0.98);
+      }
+
+      .card-title {
+        margin: 0;
+        font-size: 1.4rem;
+        color: #333;
+      }
+
+      .card-description {
+        font-size: 0.95rem;
+        color: #666;
+        margin: 8px 0;
+      }
+
+      .toggle-label {
+        display: block;
+        margin-top: 16px;
+        cursor: pointer;
+        color: #0066cc;
+        font-weight: bold;
+        user-select: none;
+      }
+
+      .toggle-input {
+        display: none;
+      }
+
+      .extra-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+      }
+
+      /* Show content if checkbox is checked */
+      .toggle-input:checked + .toggle-label + .extra-content {
+        max-height: 100px;
+      }
+
+      /* :focus-visible state for accessibility */
+      .toggle-label:focus-visible {
+        outline: 2px solid dodgerblue;
+        outline-offset: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h2 class="card-title">Interactive Card</h2>
+      <p class="card-description">
+        Hover, click, or toggle to see effects in action.
+      </p>
+
+      <!-- Hidden checkbox for toggle -->
+      <input type="checkbox" id="expand" class="toggle-input" />
+      <label for="expand" class="toggle-label" tabindex="0">Show More</label>
+
+      <div class="extra-content">
+        <p>
+          This section expands when "Show More" is toggled. Try tabbing for
+          focus ring!
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

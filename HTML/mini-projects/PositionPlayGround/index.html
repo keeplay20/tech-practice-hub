@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Positioning Practice</title>
+    <style>
+      body {
+        height: 2000px;
+        margin: 0;
+        font-family: sans-serif;
+      }
+
+      .box {
+        width: 150px;
+        height: 150px;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .static-box {
+        background: #666;
+        position: static;
+      }
+
+      .relative-box {
+        background: #009578;
+        position: relative;
+        top: 20px;
+        left: 20px;
+      }
+
+      .absolute-container {
+        position: relative;
+        height: 200px;
+        border: 2px dashed #aaa;
+        margin-top: 20px;
+      }
+
+      .absolute-box {
+        background: #c0392b;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+
+      .fixed-box {
+        background: #8e44ad;
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+      }
+
+      .sticky-box {
+        background: #e67e22;
+        position: sticky;
+        top: 0;
+        padding: 10px;
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box static-box">Static</div>
+    <div class="box relative-box">Relative</div>
+
+    <div class="absolute-container">
+      <div class="box absolute-box">Absolute</div>
+    </div>
+
+    <div class="box sticky-box">Sticky</div>
+
+    <div class="box fixed-box">Fixed</div>
+  </body>
+</html>

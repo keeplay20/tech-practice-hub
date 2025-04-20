@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Sidebar</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        display: flex;
+      }
+
+      /* Sidebar styling */
+      .sidebar {
+        width: 250px;
+        height: 100vh;
+        background-color: #333;
+        color: white;
+        padding-top: 20px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+      }
+
+      .sidebar a {
+        display: block;
+        padding: 12px 20px;
+        color: white;
+        text-decoration: none;
+        background-color: #333;
+        border-bottom: 1px solid #444;
+      }
+
+      .sidebar a:hover {
+        background-color: #555;
+      }
+
+      /* Hidden submenus */
+      .submenu {
+        display: none;
+        list-style-type: none;
+        padding-left: 20px;
+        opacity: 0;
+        transform: translateX(-10px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+
+      .submenu a {
+        background-color: #444;
+        color: white;
+        padding: 12px 20px;
+      }
+
+      .submenu a:hover {
+        background-color: #666;
+      }
+
+      /* Show submenus on hover */
+      .menu-item:hover > .submenu {
+        display: block;
+        opacity: 1;
+        transform: translateX(0);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="menu-item">
+        <a href="#">Home</a>
+      </div>
+      <div class="menu-item">
+        <a href="#">About</a>
+        <ul class="submenu">
+          <li><a href="#">Team</a></li>
+          <li><a href="#">History</a></li>
+        </ul>
+      </div>
+      <div class="menu-item">
+        <a href="#">Services</a>
+        <ul class="submenu">
+          <li><a href="#">Web Development</a></li>
+          <li><a href="#">App Development</a></li>
+          <li>
+            <a href="#">Digital Marketing</a>
+            <ul class="submenu">
+              <li><a href="#">SEO</a></li>
+              <li><a href="#">Social Media</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="menu-item">
+        <a href="#">Contact</a>
+      </div>
+    </div>
+
+    <script>
+      // GSAP Timeline for advanced sequencing animations
+      const timeline = gsap.timeline({
+        defaults: { duration: 0.6, ease: "power3.inOut" },
+      });
+
+      // Sequential animation for menu items appearing one after the other
+      timeline
+        .from(".menu-item a", { opacity: 0, x: -50, stagger: 0.1 })
+        .from(".submenu", { opacity: 0, x: -50, stagger: 0.2, delay: 0.5 });
+
+      // Add hover animation to the menu items
+      document.querySelectorAll(".menu-item").forEach((item) => {
+        item.addEventListener("mouseenter", () => {
+          gsap.to(item.querySelector(".submenu"), { opacity: 1, x: 0 });
+        });
+        item.addEventListener("mouseleave", () => {
+          gsap.to(item.querySelector(".submenu"), { opacity: 0, x: -50 });
+        });
+      });
+    </script>
+  </body>
+</html>

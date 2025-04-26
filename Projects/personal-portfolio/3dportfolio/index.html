@@ -14,7 +14,7 @@
   <body>
     <div class="wrapper">
       <div class="cover cover-left"></div>
-      <div class="cover cover-right turn"></div>
+      <div class="cover cover-right "></div>
       <div class="book">
         <!-- profile page -->
         <div class="book-page page-left">
@@ -86,7 +86,7 @@
 
             <span class="number-page">1</span>
             <!-- Next button -->
-            <span class="nextprev-btn" date-page="turn-1"
+            <span class="nextprev-btn" data-page="turn-1"
               ><i class="bx bx-chevron-right"></i
             ></span>
           </div>
@@ -133,7 +133,7 @@
             </div>
             <span class="number-page">2</span>
             <!-- prev button -->
-            <span class="nextprev-btn back" date-page="turn-1">
+            <span class="nextprev-btn back" data-page="turn-1">
               <i class="bx bx-chevron-left"></i>
             </span>
           </div>
@@ -145,15 +145,147 @@
 
           <div class="page-front">
             <h1 class="title">My Services</h1>
+            <div class="services-box">
+              <div class="services-content">
+                <i class="bx bxs-paint"></i>
+                <h3>Web Development</h3>
+                <p>
+                  I create responsive and user-friendly websites using the
+                  latest technologies.
+                </p>
+                <a href="#" class="btn">Read More</a>
+              </div>
+
+              <div class="services-content">
+                <i class="bx bxs-paint"></i>
+                <h3>Web Development</h3>
+                <p>
+                  I create responsive and user-friendly websites using the
+                  latest technologies.
+                </p>
+                <a href="#" class="btn">Read More</a>
+              </div>
+
+              <div class="services-content">
+                <i class="bx bxs-paint"></i>
+                <h3>Web Development</h3>
+                <p>
+                  I create responsive and user-friendly websites using the
+                  latest technologies.
+                </p>
+                <a href="#" class="btn">Read More</a>
+              </div>
+            </div>
+
+            <span class="number-page">3</span>
+
+            <!-- next button -->
+            <span class="nextprev-btn" data-page="turn-2">
+              <i class="bx bx-chevron-right"></i>
+
+
           </div>
 
           <!-- page 4 (my skills) -->
           <div class="page-back">
             <h1 class="title">My Skills</h1>
+            <div class="skills-box">
+              <div class="skills-content">
+                <h3>Front-End</h3>
+                <div class="content">
+                  <span><i class='bx bxl-html5' ></i>HTML</span>
+                  <span><i class='bx bxl-css3' ></i>CSS</span>
+                  <span><i class='bx bxl-javascript' ></i>JS</span>
+                  <span><i class='bx bxl-react' ></i>React</span>
+                  <span><i class='bx bxl-react' ></i>RN</span>
+                </div>
+
+              </div>
+              <div class="skills-content">
+                <h3>Back-End</h3>
+                <div class="content">
+                  <span><i class='bx bxl-java' ></i>Java</span>
+                  <span><i class='bx bxl-nodejs' ></i>Node</span>
+                </div>
+              </div>
+              <div class="skills-content">
+                  <h3>UI/UX</h3>
+                  <div class="content">
+                    <span><i class='bx bxl-figma' ></i>Figma</span>
+                  </div>
+              </div>
+            </div>
+
+            <!-- prev page -->
+            <span class="number-page">4</span>
+            <span class="nextprev-btn back" data-page="turn-2">
+              <i class="bx bx-chevron-left"></i>
+            </span>
           </div>
         </div>
+
+        <!-- Page 5 and 6 -->
+      <div class="book-page page-right turn" id="turn-3"> 
+        <!-- page 5 (latest projects) -->
+        <div class="page-front">
+          <h1 class="title">Latest Project</h1>
+          <div class="portfolio-box">
+            <div class="img-box">
+              <img src="./photo.jpg" alt="" />
+            </div> 
+
+            <div class="info-box">
+              <div class="info-title">
+                <h3>Project Name</h3>
+                <a href="#">Live Preview<i class='bx bx-link-external' ></i></a>
+              </div>
+                <p>Tech Used:</p>
+                <p>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum nam voluptate earum, libero ea maxime ab recusandae aut, architecto excepturi consectetur non similique, eveniet ipsa quia qui. Saepe, minima nemo!
+                </p>
+            </div>
+             
+            
+            <div class="btn-box">
+              <a href="#" class="btn">Source code</a>
+              <a href="#" class="btn">More Projects</a>
+            </div>
+          </div>
+
+          <span class="number-page">5</span>
+          <!-- next button -->
+          <span class="nextprev-btn" data-page="turn-3">
+            <i class="bx bx-chevron-right"></i>
+          </span>
+          
+        </div>
+
+        <!-- page 6 (Contact me) -->
+        <div class="page-back">
+          <h1 class="title">Contact Me!</h1>
+          <div class="contact-box">
+            <form action="#">
+              <input type="text" class="field" placeholder="Full Name" required>
+              <input type="email" class="field" placeholder="Email Address" required>
+              <textarea name="" id="" cols="30" rows="10" class="field" placeholder="Your Message" required></textarea>
+              <input type="submit" class="btn" value="Send Message">
+            </form>
+          </div>
+
+          <span class="number-page">6</span>
+            <!-- prev button -->
+            <span class="nextprev-btn back" data-page="turn-3">
+              <i class="bx bx-chevron-left"></i>
+            </span>
+            <a href="#" class="back-profile">
+              <p>Profile</p>
+              <i class='bx bxs-user'></i>
+            </a>
+        </div>
       </div>
-    </div>
-    <script src="script.js"></script>
+
+      
+    
+    <script src="./script.js"></script>
   </body>
 </html>

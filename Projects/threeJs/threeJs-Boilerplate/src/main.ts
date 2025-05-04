@@ -1,55 +1,38 @@
 import "./style.css";
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { RGBELoader } from "three/addons/loaders/RGBELoader.js";
 import Stats from "three/addons/libs/stats.module.js";
-import { GUI } from "dat.gui";
+import { Lensflare, LensflareElement } from "three/addons/objects/Lensflare.js";
 
 const scene = new THREE.Scene();
-scene.add(new THREE.AxesHelper(5));
+
+const light = new THREE.SpotLight(undefined, Math.PI * 1000);
+light.position.set(5, 5, 5);
+light.angle = Math.PI / 16;
+light.castShadow = true;
+scene.add(light);
+
+new RGBELoader().load("img/venice_sunset_1k.hdr", (texture) => {
+  texture.mapping = THREE.EquirectangularReflectionMapping;
+  scene.environment = texture;
+});
 
 const camera = new THREE.PerspectiveCamera(
   75,
   window.innerWidth / window.innerHeight,
   0.1,
-  1000
+  100
 );
-camera.position.set(4, 4, 4);
+camera.position.set(1.5, 0.75, 2);
 
-const renderer = new THREE.WebGLRenderer();
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 0.1;
+renderer.shadowMap.enabled = true;
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
-
-const controls = new OrbitControls(camera, renderer.domElement);
-controls.target.set(8, 0, 0);
-controls.update();
-
-const light = new THREE.PointLight(0xffffff, 400);
-light.position.set(10, 10, 10);
-scene.add(light);
-
-const object1 = new THREE.Mesh(
-  new THREE.SphereGeometry(),
-  new THREE.MeshPhongMaterial({ color: 0xff0000 })
-);
-object1.position.set(4, 0, 0);
-scene.add(object1);
-object1.add(new THREE.AxesHelper(5));
-
-const object2 = new THREE.Mesh(
-  new THREE.SphereGeometry(),
-  new THREE.MeshPhongMaterial({ color: 0x00ff00 })
-);
-object2.position.set(4, 0, 0);
-object1.add(object2);
-object2.add(new THREE.AxesHelper(5));
-
-const object3 = new THREE.Mesh(
-  new THREE.SphereGeometry(),
-  new THREE.MeshPhongMaterial({ color: 0x0000ff })
-);
-object3.position.set(4, 0, 0);
-object2.add(object3);
-object3.add(new THREE.AxesHelper(5));
 
 window.addEventListener("resize", () => {
   camera.aspect = window.innerWidth / window.innerHeight;
@@ -57,71 +40,37 @@ window.addEventListener("resize", () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
-const gui = new GUI();
-const object1Folder = gui.addFolder("Object1 (Red Ball)");
-object1Folder.add(object1.position, "x", 0, 10, 0.01).name("X Position");
-object1Folder
-  .add(object1.rotation, "x", 0, Math.PI * 2, 0.01)
-  .name("X Rotation");
-object1Folder.add(object1.scale, "x", 0, 2, 0.01).name("X Scale");
-object1Folder.add(object1, "visible", 0, 2, 0.01).name("Visible");
-object1Folder.open();
-const object2Folder = gui.addFolder("Object2 (Green Ball)");
-object2Folder.add(object2.position, "x", 0, 10, 0.01).name("X Position");
-object2Folder
-  .add(object2.rotation, "x", 0, Math.PI * 2, 0.01)
-  .name("X Rotation");
-object2Folder.add(object2.scale, "x", 0, 2, 0.01).name("X Scale");
-object2Folder.add(object2, "visible", 0, 2, 0.01).name("Visible");
-object2Folder.open();
-const object3Folder = gui.addFolder("Object3 (Blue Ball)");
-object3Folder.add(object3.position, "x", 0, 10, 0.01).name("X Position");
-object3Folder
-  .add(object3.rotation, "x", 0, Math.PI * 2, 0.01)
-  .name("X Rotation");
-object3Folder.add(object3.scale, "x", 0, 2, 0.01).name("X Scale");
-object3Folder.add(object3, "visible", 0, 2, 0.01).name("Visible");
-object3Folder.open();
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+
+const textureLoader = new THREE.TextureLoader();
+const textureFlare0 = textureLoader.load(
+  "https://cdn.jsdelivr.net/gh/Sean-Bradley/First-Car-Shooter@main/dist/client/img/lensflare0.png"
+);
+
+const lensflare = new Lensflare();
+lensflare.addElement(new LensflareElement(textureFlare0, 1000, 0));
+light.add(lensflare);
+
+new GLTFLoader().load("models/suzanne_scene.glb", (gltf) => {
+  const suzanne = gltf.scene.getObjectByName("Suzanne") as THREE.Mesh;
+  suzanne.castShadow = true;
+
+  const plane = gltf.scene.getObjectByName("Plane") as THREE.Mesh;
+  plane.receiveShadow = true;
+
+  scene.add(gltf.scene);
+});
 
 const stats = new Stats();
 document.body.appendChild(stats.dom);
 
-const debug = document.getElementById("debug") as HTMLDivElement;
-
 function animate() {
   requestAnimationFrame(animate);
 
+  controls.update();
+
   renderer.render(scene, camera);
-
-  const object1WorldPosition = new THREE.Vector3();
-  object1.getWorldPosition(object1WorldPosition);
-  const object2WorldPosition = new THREE.Vector3();
-  object2.getWorldPosition(object2WorldPosition);
-  const object3WorldPosition = new THREE.Vector3();
-  object3.getWorldPosition(object3WorldPosition);
-
-  debug.innerText =
-    "Red\n" +
-    "Local Pos X : " +
-    object1.position.x.toFixed(2) +
-    "\n" +
-    "World Pos X : " +
-    object1WorldPosition.x.toFixed(2) +
-    "\n" +
-    "\nGreen\n" +
-    "Local Pos X : " +
-    object2.position.x.toFixed(2) +
-    "\n" +
-    "World Pos X : " +
-    object2WorldPosition.x.toFixed(2) +
-    "\n" +
-    "\nBlue\n" +
-    "Local Pos X : " +
-    object3.position.x.toFixed(2) +
-    "\n" +
-    "World Pos X : " +
-    object3WorldPosition.x.toFixed(2) +
-    "\n";
 
   stats.update();
 }

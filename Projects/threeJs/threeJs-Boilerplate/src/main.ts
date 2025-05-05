@@ -25,7 +25,7 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   100
 );
-camera.position.set(1.5, 0.75, 2);
+camera.position.set(-5, 2, 7);
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.toneMapping = THREE.ACESFilmicToneMapping;

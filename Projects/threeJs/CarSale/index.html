@@ -2,12 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Car Sale</title>
+    <title>3D Car Showroom</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="carSale"></div>
-    <script type="module" src="/src/main.ts"></script>
+    <header>
+      <h1>SuperDrive Motors</h1>
+    </header>
+
+    <main>
+      <div id="viewer"></div>
+      <div class="car-info"></div>
+    </main>
+
+    <script type="module" src="./src/main.ts"></script>
   </body>
 </html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Navbar</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">MySite</div>
+      <nav class="nav-links" id="navLinks">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <div class="dropdown">
+          <a href="#">Services ▾</a>
+          <div class="dropdown-content">
+            <a href="#">Car Sales</a>
+            <a href="#">Servicing</a>
+            <a href="#">Financing</a>
+          </div>
+        </div>
+        <a href="#">Contact</a>
+      </nav>
+
+      <div class="hamburger" id="hamburgerId">☰</div>
+    </header>
+    <main>
+      <!-- 🔶 Hero Switcher Buttons -->
+      <div class="button-bar">
+        <button onclick="showHero(1)">Version 1</button>
+        <button onclick="showHero(2)">Version 2</button>
+        <button onclick="showHero(3)">Version 3</button>
+        <button onclick="showHero(4)">Version 4</button>
+        <button onclick="showHero(5)">Version 5</button>
+        <button onclick="showHero(6)">Version 6</button>
+        <button onclick="showHero(7)">Version 7</button>
+      </div>
+
+      <!-- 🧩 Hero Container -->
+      <div id="hero-container">
+        <section class="hero" id="hero-1">
+          <div class="hero-content">
+            <h1>Drive Your Dream</h1>
+            <p>
+              Explore the future of automotive technology with SuperDrive
+              Motors.
+            </p>
+            <button>Get Started</button>
+          </div>
+        </section>
+        <section class="hero" id="hero-2">
+          <div class="hero-split">
+            <div class="hero-text">
+              <h1>Experience the Power</h1>
+              <p>Luxury, performance, and style — all in one masterpiece.</p>
+              <button>Explore Models</button>
+            </div>
+            <div class="hero-image">
+              <img src="./car.jpg" alt="Car" />
+            </div>
+          </div>
+        </section>
+        <section class="hero" id="hero-3">
+          <div class="hero-overlay">
+            <h1>Redefining the Road</h1>
+            <p>Feel the power of precision engineering and sleek design.</p>
+            <button>Discover Now</button>
+          </div>
+        </section>
+        <section class="hero" id="hero-4">
+          <video autoplay muted loop playsinline class="hero-video">
+            <source src="./3752531-hd_1920_1080_24fps.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div class="hero-video-overlay">
+            <h1>Where Performance Meets Passion</h1>
+            <p>Watch the road disappear behind you.</p>
+            <button>Start Journey</button>
+          </div>
+        </section>
+        <section class="hero" id="hero-5">
+          <div class="hero5-content">
+            <div class="hero5-text">
+              <h1>Explore Your Drive</h1>
+              <p>
+                Choose from a stunning range of high-performance cars tailored
+                for you.
+              </p>
+              <button>Browse Models</button>
+            </div>
+            <div class="hero5-grid">
+              <img src="./car3.jpg" alt="Car 1" />
+              <img src="./car4.jpg" alt="Car 2" />
+              <img src="./car5.jpg" alt="Car 3" />
+              <img src="./car6.jpg" alt="Car 4" />
+            </div>
+          </div>
+        </section>
+        <section class="hero" id="hero-6">
+          <div class="hero6-container">
+            <div class="hero6-text">
+              <h1>Drive into the Future</h1>
+              <p>
+                Experience innovation with our electric and autonomous vehicle
+                lineup.
+              </p>
+              <button>Learn More</button>
+            </div>
+            <div class="hero6-illustration">
+              <img src="./car.jpg" alt="Futuristic Car" />
+            </div>
+          </div>
+        </section>
+        <section class="hero" id="hero-7">
+          <div class="hero7-container">
+            <div class="hero7-image">
+              <img src="./car2.jpg" alt="SuperDrive GT" />
+            </div>
+            <div class="hero7-details">
+              <h1>2025 SuperDrive GT</h1>
+              <p>The ultimate performance machine combining style and power.</p>
+              <ul class="features-list">
+                <li>⚡ V8 Turbocharged Engine</li>
+                <li>🛠️ Advanced Suspension System</li>
+                <li>🛡️ State-of-the-Art Safety Features</li>
+                <li>🎵 Premium Surround Sound</li>
+              </ul>
+              <button>Order Now</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

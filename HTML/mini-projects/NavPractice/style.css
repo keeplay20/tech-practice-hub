@@ -1,0 +1,603 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #222;
+  color: white;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.navbar.scrolled {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Desktop nav */
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #00bcd4;
+}
+
+/* Hamburger styles */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* Mobile nav */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #333;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 2rem;
+    display: none;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+/* Dropdown container */
+.dropdown {
+  position: relative;
+}
+
+.dropdown a {
+  cursor: pointer;
+}
+
+/* Dropdown content hidden by default */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  background-color: #444;
+  min-width: 160px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  flex-direction: column;
+}
+
+.dropdown-content a {
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  display: block;
+  color: white;
+}
+
+.dropdown-content a:hover {
+  background-color: #00bcd4;
+  color: black;
+}
+
+/* Show dropdown on hover (desktop) */
+@media (min-width: 769px) {
+  .dropdown:hover .dropdown-content {
+    display: flex;
+  }
+}
+
+/* Show dropdown on click (mobile) */
+@media (max-width: 768px) {
+  .dropdown-content {
+    position: static;
+    background-color: transparent;
+    box-shadow: none;
+    padding-left: 1rem;
+  }
+
+  .dropdown-content a {
+    background-color: #333;
+    margin-top: 5px;
+  }
+
+  .dropdown.open .dropdown-content {
+    display: flex;
+  }
+}
+/* 🔶 Button Bar */
+.button-bar {
+  text-align: center;
+  background: #f0f0f0;
+  padding: 10px;
+  position: sticky;
+  top: 56px;
+  z-index: 999;
+}
+.button-bar button {
+  margin: 5px;
+  padding: 10px 15px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  background-color: #333;
+  color: white;
+  border-radius: 5px;
+}
+.button-bar button:hover {
+  background-color: #555;
+}
+
+/* 🧩 Hero Styles */
+.hero {
+  display: none;
+  height: 100vh;
+  padding: 50px;
+  font-size: 2rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#hero-1 {
+  background: #333;
+}
+#hero-2 {
+  background: #444;
+}
+#hero-3 {
+  background: url("https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1500&q=80")
+    center/cover;
+}
+#hero-4 {
+  background: black;
+}
+#hero-5 {
+  background: #5f27cd;
+  animation: fadeIn 1s ease-in;
+}
+#hero-6 {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  color: black;
+}
+#hero-7 {
+  background: teal;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Hero 1 Styling */
+#hero-1 {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 700px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #ddd;
+}
+
+.hero-content button {
+  padding: 12px 25px;
+  font-size: 1rem;
+  background-color: #ff6f61;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hero-content button:hover {
+  background-color: #ff3b2e;
+}
+
+/* Hero 2 - Split Layout */
+#hero-2 {
+  background: #1e1e1e;
+}
+
+.hero-split {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 1100px;
+  width: 90%;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.hero-text {
+  flex: 1;
+}
+
+.hero-text h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  color: #ccc;
+}
+
+.hero-text button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  background-color: #e94560;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hero-text button:hover {
+  background-color: #d72638;
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image img {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive for small screens */
+@media (max-width: 768px) {
+  .hero-split {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Hero 3 - Background Image */
+#hero-3 {
+  background: url("./car2.jpg") no-repeat center center/cover;
+  position: relative;
+}
+
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.hero-overlay h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero-overlay p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  max-width: 600px;
+}
+
+.hero-overlay button {
+  padding: 12px 25px;
+  font-size: 1rem;
+  background-color: #ff6f61;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hero-overlay button:hover {
+  background-color: #e4473a;
+}
+
+/* Hero 4 - Video Background */
+#hero-4 {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+.hero-video-overlay {
+  position: relative;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent overlay */
+  height: 100%;
+  width: 100%;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+}
+
+.hero-video-overlay h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero-video-overlay p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  max-width: 600px;
+}
+
+.hero-video-overlay button {
+  padding: 12px 25px;
+  font-size: 1rem;
+  background-color: #e94560;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hero-video-overlay button:hover {
+  background-color: #c03244;
+}
+
+/* Hero 5 - Image Grid + Text */
+#hero-5 {
+  padding: 60px 30px;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.hero5-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  gap: 40px;
+}
+
+.hero5-text {
+  flex: 1 1 350px;
+}
+
+.hero5-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.hero5-text p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.hero5-text button {
+  padding: 12px 25px;
+  font-size: 1rem;
+  background-color: #0066ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hero5-text button:hover {
+  background-color: #004bb5;
+}
+
+.hero5-grid {
+  flex: 1 1 500px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.hero5-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Hero 6 - Left Text + Right Illustration */
+#hero-6 {
+  padding: 60px 30px;
+  background-color: #ffffff;
+}
+
+.hero6-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  gap: 40px;
+}
+
+.hero6-text {
+  flex: 1 1 450px;
+}
+
+.hero6-text h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+}
+
+.hero6-text p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.hero6-text button {
+  padding: 12px 25px;
+  font-size: 1rem;
+  background-color: #00b894;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hero6-text button:hover {
+  background-color: #019270;
+}
+
+.hero6-illustration {
+  flex: 1 1 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero6-illustration img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Hero 7 - Product Focus with Features */
+#hero-7 {
+  padding: 60px 30px;
+  background-color: #fafafa;
+}
+
+.hero7-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: auto;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero7-image {
+  flex: 1 1 400px;
+}
+
+.hero7-image img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.hero7-details {
+  flex: 1 1 500px;
+}
+
+.hero7-details h1 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+.hero7-details p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  color: #444;
+}
+
+.features-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 30px;
+}
+
+.features-list li {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.features-list li::before {
+  content: "✔️";
+  margin-right: 8px;
+  color: #28a745;
+}
+
+.hero7-details button {
+  padding: 14px 30px;
+  font-size: 1.1rem;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.hero7-details button:hover {
+  background-color: #a71d2a;
+}

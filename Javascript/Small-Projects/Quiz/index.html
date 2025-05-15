@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Closure Quiz App</title>
+    <style>
+      /* Reset some default styles */
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: #333;
+        margin: 0;
+        padding: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .quiz-container {
+        background: #fff;
+        padding: 2rem 3rem;
+        border-radius: 12px;
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        width: 100%;
+        max-width: 480px;
+        text-align: center;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.2rem;
+        color: #2c3e50;
+      }
+
+      .options {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-top: 1.2rem;
+      }
+
+      button.option-btn {
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        border-radius: 8px;
+        border: 2px solid #667eea;
+        background-color: #f0f4ff;
+        color: #333;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease,
+          border-color 0.3s ease;
+        user-select: none;
+        box-shadow: 0 2px 5px rgba(102, 126, 234, 0.3);
+      }
+
+      button.option-btn:hover,
+      button.option-btn:focus {
+        background-color: #667eea;
+        color: white;
+        border-color: #5a6fcf;
+        outline: none;
+      }
+
+      button.option-btn:active {
+        background-color: #5368c9;
+        border-color: #4a5db3;
+      }
+
+      .result {
+        margin-top: 2rem;
+        font-weight: 600;
+        font-size: 1.2rem;
+        min-height: 2rem;
+        color: #444;
+        transition: color 0.3s ease;
+      }
+
+      /* Success and error colors */
+      .result.correct {
+        color: #27ae60;
+      }
+      .result.wrong {
+        color: #c0392b;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="quiz-container">
+      <h2 id="question">Loading question...</h2>
+      <div class="options" id="options"></div>
+      <div class="result" id="result"></div>
+    </main>
+
+    <script>
+      // Closure for score tracking
+      function createScoreTracker() {
+        let score = 0;
+        return {
+          increment: () => {
+            score++;
+          },
+          getScore: () => score,
+          reset: () => {
+            score = 0;
+          },
+        };
+      }
+
+      // Closure for quiz logic
+      function createQuiz(questions) {
+        let currentQuestionIndex = 0;
+        const scoreTracker = createScoreTracker();
+
+        // DOM elements
+        const questionEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const resultEl = document.getElementById("result");
+
+        function showQuestion() {
+          resultEl.textContent = "";
+          resultEl.className = "result";
+
+          if (currentQuestionIndex >= questions.length) {
+            questionEl.textContent = "🎉 Quiz Finished!";
+            optionsEl.innerHTML = "";
+            resultEl.textContent = `Your final score: ${scoreTracker.getScore()} / ${
+              questions.length
+            }`;
+            resultEl.classList.remove("correct", "wrong");
+            return;
+          }
+
+          const q = questions[currentQuestionIndex];
+          questionEl.textContent = `Q${currentQuestionIndex + 1}: ${
+            q.question
+          }`;
+
+          optionsEl.innerHTML = "";
+          q.options.forEach((opt, idx) => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.className = "option-btn";
+            btn.onclick = () => {
+              if (idx + 1 === q.correctOption) {
+                scoreTracker.increment();
+                resultEl.textContent = "Correct! 🎉";
+                resultEl.classList.add("correct");
+              } else {
+                resultEl.textContent = `Wrong! Correct answer: ${
+                  q.options[q.correctOption - 1]
+                }`;
+                resultEl.classList.add("wrong");
+              }
+              currentQuestionIndex++;
+              setTimeout(showQuestion, 1500);
+            };
+            optionsEl.appendChild(btn);
+          });
+        }
+
+        return {
+          start: () => {
+            scoreTracker.reset();
+            currentQuestionIndex = 0;
+            showQuestion();
+          },
+        };
+      }
+
+      // Sample questions
+      const questions = [
+        {
+          question: "What is closure in JavaScript?",
+          options: [
+            "A function bundled with its lexical environment",
+            "An object property",
+            "A type of loop",
+            "None of the above",
+          ],
+          correctOption: 1,
+        },
+        {
+          question:
+            "Which keyword is used to declare a variable that is block scoped?",
+          options: ["var", "let", "const", "function"],
+          correctOption: 2,
+        },
+        {
+          question: "What will this output? console.log(typeof NaN);",
+          options: ["number", "NaN", "undefined", "object"],
+          correctOption: 1,
+        },
+      ];
+
+      // Initialize and start the quiz
+      const quiz = createQuiz(questions);
+      quiz.start();
+    </script>
+  </body>
+</html>

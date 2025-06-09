@@ -1,13 +1,23 @@
-import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import React, { useEffect, useState } from "react";
+import { View, Text, FlatList, Image, StyleSheet } from "react-native";
+import { fetchPopularMovies } from "../api/movieService";
 
-const HomeScreen = ({ route }: any) => {
-  const { user } = route.params;
+const HomeScreen = () => {
+  console.log("HomeScreen component rendered");
+  const [movies, setMovies] = useState([]);
 
+  //   Actual API call
+  //   useEffect(() => {
+  //     (async () => {
+  //       const data = await fetchPopularMovies();
+  //       console.log(data.results);
+  //     })();
+  //   }, []);
   return (
     <View style={styles.container}>
-      <Image source={user.image} style={styles.image} />
-      <Text style={styles.name}>Welcome, {user.name}!</Text>
+      <Text style={styles.textStyle}>TV Shows</Text>
+      <Text style={styles.textStyle}>Movies</Text>
+      <Text style={styles.textStyle}>List</Text>
     </View>
   );
 };
@@ -16,19 +26,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#000",
-    justifyContent: "center",
-    alignItems: "center",
+    padding: 16,
   },
-  image: {
-    width: 120,
-    height: 120,
-    borderRadius: 60,
-    marginBottom: 20,
-  },
-  name: {
-    fontSize: 24,
-    fontWeight: "bold",
+  textStyle: {
     color: "#fff",
+    fontSize: 14,
+    fontWeight: "bold",
   },
 });
 

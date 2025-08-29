@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ChatBubble from "./components/ChatBubble";
-import RaceLoader from "./components/RaceLoader";
 import SkillChips from "./components/SkillChips";
 import RaceTrack from "./components/RaceTrack";
 import GameCenter from "./pages/GameCenter";

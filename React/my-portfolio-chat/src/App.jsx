@@ -13,7 +13,7 @@ const Header = () => (
         >
           🏎️ Mandar's Racing Portfolio
         </motion.div>
-        <div className="text-red-500 text-sm">Senior Full Stack Developer</div>
+        <div className="text-red-500 text-sm">Senior Developer</div>
       </div>
     </div>
   </header>

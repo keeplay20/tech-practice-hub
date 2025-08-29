@@ -1,98 +1,9 @@
 export const certificationExperiences = {
-  aws: {
+  istqb: {
     from: "me",
-    text: `AWS Certified Solutions Architect - Associate
+    text: `• ISTQB - Test Automation Engineer (CT-TAE)
 
-• Cloud Architecture Expertise:
-  - Designing scalable and resilient systems
-  - Multi-tier application architecture
-  - High availability and disaster recovery
-  - Cost optimization strategies
-
-• AWS Services Mastery:
-  - EC2, S3, RDS, DynamoDB
-  - VPC and networking
-  - IAM and security best practices
-  - Lambda and serverless
-
-Valid through 2024
-Credential ID: AWS-SAA-12345`,
-  },
-  mongodb: {
-    from: "me",
-    text: `MongoDB Certified Developer
-
-• Database Design Excellence:
-  - Schema design patterns
-  - Data modeling best practices
-  - Performance optimization
-  - Indexing strategies
-
-• Advanced Features:
-  - Aggregation pipeline
-  - Transactions
-  - Replication and sharding
-  - Security and access control
-
-Completed in 2023
-Credential ID: MDB-DEV-67890`,
-  },
-  reactnative: {
-    from: "me",
-    text: `React Native Certified Developer
-
-• Mobile Development Mastery:
-  - Cross-platform development
-  - Native module integration
-  - Performance optimization
-  - Platform-specific features
-
-• Advanced Concepts:
-  - Navigation patterns
-  - State management
-  - Native APIs integration
-  - Deployment and publishing
-
-Earned in 2022
-Credential ID: RN-DEV-24680`,
-  },
-  scrum: {
-    from: "me",
-    text: `Certified Scrum Master
-
-• Agile Leadership:
-  - Sprint planning and execution
-  - Team facilitation
-  - Impediment removal
-  - Stakeholder management
-
-• Scrum Framework:
-  - Ceremonies and artifacts
-  - Role responsibilities
-  - Scaling Scrum
-  - Agile metrics
-
-Active certification
-Credential ID: CSM-13579`,
-  },
-  gcp: {
-    from: "me",
-    text: `Google Cloud Professional Developer
-
-• Cloud Development:
-  - App Engine and Cloud Run
-  - Cloud Functions
-  - Cloud Storage
-  - Cloud SQL and Datastore
-
-• DevOps Practices:
-  - CI/CD pipelines
-  - Monitoring and logging
-  - Security and compliance
-  - Cost management
-
-Completed in 2023
-Credential ID: GCP-DEV-97531`,
+• ISTQB - Foundation Level (CTFL)`,
   },
 };
 
@@ -186,35 +97,56 @@ export const skillExperiences = {
 };
 
 export const companyExperiences = {
-  techcorp: {
+  dream: {
     from: "me",
-    text: `Senior Full Stack Developer at TechCorp (2021-Present)
-• Led development of a high-traffic e-commerce platform
-• Improved system performance by 60%
-• Mentored junior developers and established best practices`,
-    company: "TechCorp",
-    duration: "2021-Present",
-    role: "Senior Full Stack Developer",
+    text: `Senior Full Stack Developer Built and shipped features in the Dream11 React Native app, including:
+• My Balance, My Transactions, Verification flows
+• Multiple bottom sheets for seamless in-app interactions
+• Designed and developed internal React-based admin panels to streamline Customer Support
+operations.
+• Architected and implemented a Detox-based E2E testing framework from scratch, tightly
+integrated with CI/CD pipelines for reliable release validation.
+• Created a label-based automation framework to reduce test flakiness and improve
+maintainability.
+• Built a mock payment system to simulate deposit/withdrawal scenarios in development and
+QA environments.
+• Tech Stack: React Native, React, JS, Appium, Jenkins.`,
   },
-  innovatesoft: {
+  gupshup: {
     from: "me",
-    text: `Full Stack Developer at InnovateSoft (2019-2021)
-• Developed real-time analytics dashboard using React and Node.js
-• Implemented microservices architecture
-• Reduced data processing time by 40%`,
-    company: "InnovateSoft",
-    duration: "2019-2021",
-    role: "Full Stack Developer",
+    text: `Softare engineer at Gupshup (2019-2021)
+• Automated backend components (HTTPSender, SMSSender) to improve reliability and speed
+of messaging flows.
+• Developed shell scripts for automated test data generation, reducing manual dependency.
+• Conducted API performance testing using JMeter and Postman, identifying bottlenecks in
+message delivery.
+• Reviewed code/test coverage and guided teammates to improve system stability.
+• Tech Stack: Postman, JMeter, Shell Scripting, JIRA`,
   },
-  websolutions: {
+  vxl: {
     from: "me",
-    text: `Junior Developer at WebSolutions (2018-2019)
-• Built responsive web applications
-• Worked on payment integration systems
-• Contributed to internal tooling development`,
-    company: "WebSolutions",
-    duration: "2018-2019",
-    role: "Junior Developer",
+    text: `Software engineer at VXL Instruments
+• Contributed to testing and development of Linux-based OS (LetOS, Gio6) and web-based
+management tools.
+• Developed automation scripts with Selenium + TestNG for Lenovo Terminal Manager,
+reducing manual QA cycles.
+• Collaborated with dev teams to design and execute test strategies for new releases.
+• Tech Stack: Selenium, TestNG, Linux OS, JS,`,
+  },
+  free: {
+    from: "me",
+    text: `Freelancer
+• Delivered custom automation and development projects for multiple startups, including web
+apps and testing frameworks.`,
+  },
+  wipro: {
+    from: "me",
+    text: `Techincal consultant at Wipro
+• Developed custom SharePoint pages for business process automation.
+• Installed, configured, and supported Microsoft SharePoint 2013 & SharePoint Online for
+EMEA & APAC clients.
+• Automated workflows to reduce manual processes in enterprise setups.
+• Tech Stack: SharePoint 2013/Online, JavaScript, PowerShell`,
   },
 };
 
@@ -249,22 +181,34 @@ Favorite Circuits: React, TypeScript, Node.js
     text: "Select a company to see my experience there:",
     companies: [
       {
-        id: "techcorp",
-        name: "TechCorp",
+        id: "dream",
+        name: "DREAM11",
         duration: "2021-Present",
-        role: "Senior Full Stack Developer",
+        role: "SDE 2",
       },
       {
-        id: "innovatesoft",
-        name: "InnovateSoft",
+        id: "gupshup",
+        name: "Gupshup",
         duration: "2019-2021",
-        role: "Full Stack Developer",
+        role: "Software Engineer",
       },
       {
-        id: "websolutions",
-        name: "WebSolutions",
-        duration: "2018-2019",
+        id: "vxl",
+        name: "VXL Instruments",
+        duration: "2016-2019",
         role: "Junior Developer",
+      },
+      {
+        id: "free",
+        name: "Freelancer",
+        duration: "2015-2016",
+        role: "Developer",
+      },
+      {
+        id: "wipro",
+        name: "Wipro",
+        duration: "2014-2015",
+        role: "Technical Consultant",
       },
     ],
   },
@@ -303,24 +247,8 @@ Favorite Circuits: React, TypeScript, Node.js
     text: "Select a certification to learn more:",
     companies: [
       {
-        id: "aws",
-        name: "AWS Solutions Architect",
-      },
-      {
-        id: "mongodb",
-        name: "MongoDB Developer",
-      },
-      {
-        id: "reactnative",
-        name: "React Native Developer",
-      },
-      {
-        id: "scrum",
-        name: "Certified Scrum Master",
-      },
-      {
-        id: "gcp",
-        name: "Google Cloud Developer",
+        id: "istqb",
+        name: "ISTQB",
       },
     ],
   },

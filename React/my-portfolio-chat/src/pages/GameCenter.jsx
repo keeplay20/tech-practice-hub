@@ -2,6 +2,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import TicTacToe from "../components/TicTacToe/TicTacToe";
 import RockPaperScissors from "../components/RockPaperScissors/RockPaperScissors";
+import Snake from "../components/Snake/Snake";
+import TypingTest from "../components/TypingTest/TypingTest";
 
 const games = [
   {
@@ -15,6 +17,18 @@ const games = [
     title: "Rock Paper Scissors",
     icon: "✌️",
     description: "Test your luck against AI",
+  },
+  {
+    id: "snake",
+    title: "Snake Game",
+    icon: "🐍",
+    description: "Classic snake adventure",
+  },
+  {
+    id: "typing",
+    title: "Typing Speed Test",
+    icon: "⌨️",
+    description: "Test your coding typing speed",
   },
 ];
 
@@ -63,7 +77,7 @@ export default function GameCenter({ onBack }) {
                      hover:border-accent-light text-text-secondary
                      hover:text-text-primary transition-all duration-300"
           >
-            ← Back to Chat
+            ← Back to portfolio
           </button>
         </div>
       </header>
@@ -103,9 +117,13 @@ export default function GameCenter({ onBack }) {
               </button>
               {selectedGame === "tictactoe" ? (
                 <TicTacToe />
-              ) : (
+              ) : selectedGame === "rps" ? (
                 <RockPaperScissors />
-              )}
+              ) : selectedGame === "snake" ? (
+                <Snake />
+              ) : selectedGame === "typing" ? (
+                <TypingTest />
+              ) : null}
             </motion.div>
           )}
         </AnimatePresence>

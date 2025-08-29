@@ -2,6 +2,7 @@
   "name": "my-portfolio-chat",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://keeplay20.github.io/tech-practice-hub",
   "dependencies": {
     "@testing-library/dom": "^9.3.3",
     "@testing-library/jest-dom": "^6.1.4",

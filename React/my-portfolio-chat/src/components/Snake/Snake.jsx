@@ -8,16 +8,15 @@ const INITIAL_DIRECTION = { x: 0, y: -1 };
 const INITIAL_FOOD = { x: 15, y: 15 };
 
 const generateFood = (snake) => {
-  const getRandomPosition = () => ({
-    x: Math.floor(Math.random() * GRID_SIZE),
-    y: Math.floor(Math.random() * GRID_SIZE),
-  });
-  
-  let newFood = getRandomPosition();
-  // eslint-disable-next-line no-loop-func
-  while (snake.some((segment) => segment.x === newFood.x && segment.y === newFood.y)) {
-    newFood = getRandomPosition();
-  }
+  let newFood;
+  do {
+    newFood = {
+      x: Math.floor(Math.random() * GRID_SIZE),
+      y: Math.floor(Math.random() * GRID_SIZE),
+    };
+  } while (
+    snake.some((segment) => segment.x === newFood.x && segment.y === newFood.y)
+  );
   return newFood;
 };
 

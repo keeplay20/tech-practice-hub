@@ -153,7 +153,7 @@ export default function TicTacToe() {
       }, 750);
       return () => clearTimeout(timeout);
     }
-  }, [currentPlayer, winner, handleClick, board]);
+  }, [currentPlayer, winner, handleClick]);
 
   const resetGame = () => {
     setBoard(Array(9).fill(null));

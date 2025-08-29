@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { cars } from "../data/cars";
 import SpeedLines from "./SpeedLines";
 
 const CompanyList = ({

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { cars } from "../data/cars";
 import Countdown from "./Countdown";
-import RaceLoader from "./RaceLoader";
 
 const RaceTrack = ({ activeCar, onCarSelect }) => {
   const [isRacing, setIsRacing] = useState(false);

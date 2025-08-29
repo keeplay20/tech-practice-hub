@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-racing-dark: #15151e;
+  --color-racing-light: #1c1c25;
+  --color-racing-red: #ff1801;
+  --color-racing-orange: #ff8f00;
+}
+
+/* Hide all scrollbars across all devices */
+* {
+  -ms-overflow-style: none !important; /* IE and Edge */
+  scrollbar-width: none !important; /* Firefox */
+}
+
+*::-webkit-scrollbar {
+  display: none !important; /* Chrome, Safari, Opera */
+}
+
+/* Ensure dark background */
+html,
+body {
+  background-color: var(--color-racing-dark);
+  color: #ffffff;
+}
+
+/* Optional: smooth scroll for chat */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Add subtle shadow to chat box */
+.shadow-xl {
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Chat bubble animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Horizontal scroll fade mask */
+.mask-fade-right {
+  mask-image: linear-gradient(to right, black 95%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, black 95%, transparent 100%);
+}
+
+@media (min-width: 1024px) {
+  .mask-fade-right {
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+}

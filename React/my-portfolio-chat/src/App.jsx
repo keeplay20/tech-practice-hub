@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import ChatBubble from "./components/ChatBubble";
+import SkillChips from "./components/SkillChips";
+import RaceTrack from "./components/RaceTrack";
 import GameCenter from "./pages/GameCenter";
 
 const Header = () => (

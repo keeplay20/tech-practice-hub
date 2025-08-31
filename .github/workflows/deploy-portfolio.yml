@@ -4,11 +4,11 @@ on:
   push:
     branches: [main]
     paths:
-      - "React/my-portfolio-chat/**"
+      - "React/resume-portfolio/**"
   pull_request:
     branches: [main]
     paths:
-      - "React/my-portfolio-chat/**"
+      - "React/resume-portfolio/**"
   workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
@@ -36,14 +36,14 @@ jobs:
         with:
           node-version: "18"
           cache: "npm"
-          cache-dependency-path: React/my-portfolio-chat/package-lock.json
+          cache-dependency-path: React/resume-portfolio/package-lock.json
 
       - name: Install dependencies
-        working-directory: React/my-portfolio-chat
+        working-directory: React/resume-portfolio
         run: npm ci
 
       - name: Build portfolio
-        working-directory: React/my-portfolio-chat
+        working-directory: React/resume-portfolio
         run: npm run build
 
       - name: Setup Pages
@@ -52,7 +52,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: React/my-portfolio-chat/build
+          path: React/resume-portfolio/build
 
   # Deployment job
   deploy:

@@ -1,0 +1,125 @@
+.snake-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.snake-game__scoreboard {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+.snake-game__score {
+  text-align: center;
+}
+
+.snake-game__score-label {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.snake-game__score-value {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin: 0;
+  font-family: var(--font-family-mono);
+  color: #10b981;
+}
+
+.snake-game__score-value--high {
+  color: #8b5cf6;
+}
+
+.snake-game__board {
+  position: relative;
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.snake-game__cell {
+  position: absolute;
+  border-radius: 2px;
+  z-index: 1;
+}
+
+.snake-game__cell--head {
+  background: linear-gradient(135deg, #10b981, #059669);
+  z-index: 2;
+}
+
+.snake-game__cell--body {
+  background: linear-gradient(135deg, #34d399, #10b981);
+}
+
+.snake-game__cell--food {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  z-index: 3;
+}
+
+.snake-game__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-lg);
+  z-index: 10;
+}
+
+.snake-game__game-over {
+  text-align: center;
+  color: var(--text-primary);
+}
+
+.snake-game__game-over-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #ef4444;
+}
+
+.snake-game__game-over-text {
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.snake-game__start-btn,
+.snake-game__restart-btn {
+  margin-bottom: 1.5rem;
+  padding: 0.75rem 2rem;
+}
+
+.snake-game__controls {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.snake-game__controls p {
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .snake-game__board {
+    transform: scale(1.2);
+    margin: 2rem 0 3rem;
+  }
+
+  .snake-game__scoreboard {
+    gap: 4rem;
+  }
+}

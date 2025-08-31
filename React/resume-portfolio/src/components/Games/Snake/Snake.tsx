@@ -19,10 +19,14 @@ const generateFood = (snake: Position[]): Position => {
     y: Math.floor(Math.random() * GRID_SIZE),
   });
 
+  const isPositionOccupied = (position: Position): boolean => {
+    return snake.some(
+      (segment) => segment.x === position.x && segment.y === position.y
+    );
+  };
+
   let newFood = getRandomPosition();
-  while (
-    snake.some((segment) => segment.x === newFood.x && segment.y === newFood.y)
-  ) {
+  while (isPositionOccupied(newFood)) {
     newFood = getRandomPosition();
   }
   return newFood;

@@ -1,0 +1,187 @@
+.experience {
+  position: relative;
+}
+
+.experience__timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.experience__timeline::before {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    var(--accent-color),
+    rgba(99, 102, 241, 0.3)
+  );
+}
+
+.experience__item {
+  position: relative;
+  margin-bottom: 3rem;
+  padding-left: 2rem;
+}
+
+.experience__item:last-child {
+  margin-bottom: 0;
+}
+
+.experience__dot {
+  position: absolute;
+  left: -2.25rem;
+  top: 0.5rem;
+  width: 1rem;
+  height: 1rem;
+  background: var(--accent-color);
+  border-radius: 50%;
+  border: 3px solid var(--primary-bg);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+}
+
+.experience__content {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.experience__content:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+}
+
+.experience__header-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.experience__position {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.experience__company-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.experience__company {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--accent-color);
+}
+
+.experience__location {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.experience__duration {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  font-family: var(--font-family-mono);
+  background: rgba(99, 102, 241, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-md);
+  align-self: flex-start;
+}
+
+.experience__description {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+}
+
+.experience__description li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.experience__description li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+.experience__technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.experience__tech-tag {
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--accent-color);
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  transition: all 0.2s ease;
+  cursor: default;
+}
+
+.experience__tech-tag:hover {
+  background: var(--accent-color);
+  color: white;
+  transform: translateY(-1px);
+}
+
+@media (min-width: 640px) {
+  .experience__company-info {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .experience__location::before {
+    content: "•";
+    margin-right: 0.5rem;
+    color: var(--text-muted);
+  }
+}
+
+@media (min-width: 768px) {
+  .experience__timeline {
+    padding-left: 3rem;
+  }
+
+  .experience__item {
+    padding-left: 3rem;
+  }
+
+  .experience__dot {
+    left: -2.75rem;
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .experience__header-info {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .experience__content {
+    padding: 2.5rem;
+  }
+}

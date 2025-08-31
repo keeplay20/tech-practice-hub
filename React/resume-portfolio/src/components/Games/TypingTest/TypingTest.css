@@ -1,0 +1,234 @@
+.typing-test {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.typing-test__stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.typing-test__stat-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1rem;
+  text-align: center;
+}
+
+.typing-test__stat-label {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.typing-test__stat-value {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin: 0;
+  font-family: var(--font-family-mono);
+}
+
+.typing-test__stat-unit {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-left: 0.25rem;
+}
+
+.typing-test__progress-bar {
+  width: 100%;
+  height: 0.5rem;
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.typing-test__progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-hover));
+  border-radius: var(--radius-md);
+}
+
+.typing-test__text-display {
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  min-height: 150px;
+}
+
+.typing-test__text {
+  font-family: var(--font-family-mono);
+  font-size: 1rem;
+  line-height: 1.8;
+  word-wrap: break-word;
+}
+
+.typing-test__char {
+  position: relative;
+}
+
+.typing-test__char--correct {
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.typing-test__char--incorrect {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.typing-test__char--active {
+  background: var(--accent-color);
+  color: white;
+  animation: blink 1s infinite;
+}
+
+.typing-test__char--pending {
+  color: var(--text-secondary);
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0.3;
+  }
+}
+
+.typing-test__input-area {
+  margin-bottom: 1.5rem;
+}
+
+.typing-test__input {
+  width: 100%;
+  padding: 1rem;
+  background: var(--primary-bg);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  color: var(--text-primary);
+  font-family: var(--font-family-mono);
+  font-size: 1rem;
+  line-height: 1.6;
+  resize: none;
+  transition: border-color 0.3s ease;
+}
+
+.typing-test__input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.typing-test__input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.typing-test__actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.typing-test__modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.typing-test__modal-content {
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-2xl);
+  padding: 2rem;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.typing-test__modal-header h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.typing-test__modal-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.typing-test__modal-stat {
+  text-align: center;
+}
+
+.typing-test__modal-stat-label {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.typing-test__modal-stat-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #10b981;
+  font-family: var(--font-family-mono);
+  margin-bottom: 0.25rem;
+}
+
+.typing-test__modal-stat-unit {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+}
+
+.typing-test__modal-btn {
+  width: 100%;
+  padding: 1rem;
+}
+
+.typing-test__instructions {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.typing-test__instructions p {
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .typing-test__stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .typing-test__actions {
+    flex-wrap: nowrap;
+  }
+}
+
+@media (min-width: 768px) {
+  .typing-test__text-display {
+    padding: 2.5rem;
+  }
+
+  .typing-test__text {
+    font-size: 1.1rem;
+  }
+}

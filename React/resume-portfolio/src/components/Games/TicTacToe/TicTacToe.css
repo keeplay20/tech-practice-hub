@@ -1,0 +1,144 @@
+.tic-tac-toe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.tic-tac-toe__scoreboard {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+.tic-tac-toe__score {
+  text-align: center;
+}
+
+.tic-tac-toe__score-label {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.tic-tac-toe__score-label--x {
+  color: #6366f1;
+}
+
+.tic-tac-toe__score-label--o {
+  color: #8b5cf6;
+}
+
+.tic-tac-toe__score-value {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0;
+  font-family: var(--font-family-mono);
+  color: var(--text-primary);
+}
+
+.tic-tac-toe__status {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.tic-tac-toe__status-text {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.tic-tac-toe__winner,
+.tic-tac-toe__current {
+  font-weight: 800;
+}
+
+.tic-tac-toe__winner--x,
+.tic-tac-toe__current--x {
+  color: #6366f1;
+}
+
+.tic-tac-toe__winner--o,
+.tic-tac-toe__current--o {
+  color: #8b5cf6;
+}
+
+.tic-tac-toe__board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  background: var(--card-bg);
+  padding: 1rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-color);
+  margin-bottom: 2rem;
+}
+
+.tic-tac-toe__cell {
+  width: 80px;
+  height: 80px;
+  background: var(--primary-bg);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.tic-tac-toe__cell:hover:not(.tic-tac-toe__cell--disabled) {
+  border-color: var(--accent-color);
+  background: rgba(99, 102, 241, 0.05);
+}
+
+.tic-tac-toe__cell--winning {
+  border-color: var(--accent-color);
+  background: rgba(99, 102, 241, 0.1);
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+}
+
+.tic-tac-toe__cell--disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.tic-tac-toe__symbol {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.tic-tac-toe__symbol--x {
+  color: #6366f1;
+}
+
+.tic-tac-toe__symbol--o {
+  color: #8b5cf6;
+}
+
+.tic-tac-toe__reset-btn {
+  margin-top: 1rem;
+  padding: 0.75rem 2rem;
+}
+
+@media (min-width: 768px) {
+  .tic-tac-toe__cell {
+    width: 100px;
+    height: 100px;
+  }
+
+  .tic-tac-toe__symbol {
+    font-size: 2.5rem;
+  }
+
+  .tic-tac-toe__board {
+    padding: 1.5rem;
+  }
+}

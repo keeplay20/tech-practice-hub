@@ -1,0 +1,167 @@
+.rps {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.rps__scoreboard {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin-bottom: 2rem;
+}
+
+.rps__score {
+  text-align: center;
+}
+
+.rps__score-label {
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.rps__score-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0;
+  font-family: var(--font-family-mono);
+}
+
+.rps__score-value--player {
+  color: #10b981;
+}
+
+.rps__score-value--computer {
+  color: #ef4444;
+}
+
+.rps__result {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.rps__battle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.rps__battle-choice {
+  text-align: center;
+}
+
+.rps__battle-label {
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.rps__battle-symbol {
+  font-size: 3rem;
+  display: block;
+}
+
+.rps__battle-vs {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.rps__result-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.rps__result-text--player {
+  color: #10b981;
+}
+
+.rps__result-text--computer {
+  color: #ef4444;
+}
+
+.rps__result-text--draw {
+  color: var(--text-primary);
+}
+
+.rps__choices {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.rps__choice {
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rps__choice:hover:not(.rps__choice--disabled) {
+  border-color: var(--accent-color);
+  background: rgba(99, 102, 241, 0.05);
+}
+
+.rps__choice--selected {
+  border-color: var(--accent-color);
+  background: rgba(99, 102, 241, 0.1);
+}
+
+.rps__choice--winner {
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.1);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+}
+
+.rps__choice--disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.rps__choice-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rps__choice-symbol {
+  font-size: 2rem;
+}
+
+.rps__choice-name {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.rps__play-again {
+  margin-top: 1rem;
+  padding: 0.75rem 2rem;
+}
+
+@media (min-width: 768px) {
+  .rps__choice {
+    padding: 2rem 1.5rem;
+  }
+
+  .rps__choice-symbol {
+    font-size: 2.5rem;
+  }
+
+  .rps__battle-symbol {
+    font-size: 4rem;
+  }
+}

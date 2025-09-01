@@ -5,7 +5,7 @@ export const personalInfo: PersonalInfo = {
   title: "Software Development Engineer",
   summary:
     "Passionate developer with 10+ years of experience building scalable web and mobile applications. Currently driving innovation at Dream11 with React Native and modern web technologies.",
-  yearsOfExperience: 8,
+  yearsOfExperience: 10,
   location: "India",
   email: "mandar.vyas20@gmail.com",
   linkedin: "https://www.linkedin.com/in/mandar-vyas/",
@@ -52,7 +52,6 @@ export const experiences: Experience[] = [
       "Collaborated with cross-functional teams to deliver high-quality messaging solutions",
     ],
     technologies: [
-      "Java",
       "Postman",
       "JMeter",
       "Shell Scripting",
@@ -66,7 +65,7 @@ export const experiences: Experience[] = [
     company: "VXL Instruments",
     position: "Software Engineer",
     duration: "2016 - 2019",
-    location: "Pune, India",
+    location: "Mumbai, India",
     description: [
       "Contributed to testing and development of Linux-based OS (LetOS, Gio6) and web-based management tools",
       "Developed automation scripts with Selenium + TestNG for Lenovo Terminal Manager, reducing manual QA cycles",
@@ -109,7 +108,7 @@ export const experiences: Experience[] = [
     company: "Wipro",
     position: "Technical Consultant",
     duration: "2014 - 2015",
-    location: "Bangalore, India",
+    location: "Mumbai, India",
     description: [
       "Developed custom SharePoint pages for business process automation",
       "Installed, configured, and supported Microsoft SharePoint 2013 & SharePoint Online for EMEA & APAC clients",

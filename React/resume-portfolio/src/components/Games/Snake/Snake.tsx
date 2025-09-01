@@ -42,8 +42,10 @@ const Snake: React.FC = () => {
     return parseInt(localStorage.getItem("snakeHighScore") || "0");
   });
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const gameLoopRef = useRef<NodeJS.Timeout>();
   const lastDirectionRef = useRef(INITIAL_DIRECTION);
+  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
 
   const resetGame = useCallback(() => {
     setSnake(INITIAL_SNAKE);
@@ -54,6 +56,95 @@ const Snake: React.FC = () => {
     setIsPlaying(false);
     lastDirectionRef.current = INITIAL_DIRECTION;
   }, []);
+
+  // Mobile detection
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(
+        window.innerWidth <= 768 ||
+          /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+            navigator.userAgent
+          )
+      );
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Direction change handler
+  const changeDirection = useCallback(
+    (newDirection: Position) => {
+      if (!isPlaying || gameOver) return;
+
+      const currentDirection = lastDirectionRef.current;
+
+      // Prevent reverse direction
+      if (
+        (newDirection.x === -currentDirection.x &&
+          newDirection.y === currentDirection.y) ||
+        (newDirection.y === -currentDirection.y &&
+          newDirection.x === currentDirection.x)
+      ) {
+        return;
+      }
+
+      setDirection(newDirection);
+      lastDirectionRef.current = newDirection;
+    },
+    [isPlaying, gameOver]
+  );
+
+  // Touch handlers for swipe gestures
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    const touch = e.touches[0];
+    touchStartRef.current = { x: touch.clientX, y: touch.clientY };
+  }, []);
+
+  const handleTouchEnd = useCallback(
+    (e: React.TouchEvent) => {
+      if (!touchStartRef.current) return;
+
+      const touch = e.changedTouches[0];
+      const deltaX = touch.clientX - touchStartRef.current.x;
+      const deltaY = touch.clientY - touchStartRef.current.y;
+      const minSwipeDistance = 30;
+
+      if (
+        Math.abs(deltaX) < minSwipeDistance &&
+        Math.abs(deltaY) < minSwipeDistance
+      ) {
+        // Tap - start/restart game
+        if (gameOver) {
+          resetGame();
+        } else if (!isPlaying) {
+          setIsPlaying(true);
+        }
+        return;
+      }
+
+      // Determine swipe direction
+      if (Math.abs(deltaX) > Math.abs(deltaY)) {
+        // Horizontal swipe
+        if (deltaX > 0) {
+          changeDirection({ x: 1, y: 0 }); // Right
+        } else {
+          changeDirection({ x: -1, y: 0 }); // Left
+        }
+      } else {
+        // Vertical swipe
+        if (deltaY > 0) {
+          changeDirection({ x: 0, y: 1 }); // Down
+        } else {
+          changeDirection({ x: 0, y: -1 }); // Up
+        }
+      }
+
+      touchStartRef.current = null;
+    },
+    [changeDirection, gameOver, isPlaying, resetGame]
+  );
 
   const moveSnake = useCallback(() => {
     setSnake((currentSnake) => {
@@ -105,7 +196,6 @@ const Snake: React.FC = () => {
   const handleKeyPress = useCallback(
     (e: KeyboardEvent) => {
       const key = e.key.toLowerCase();
-      const currentDirection = lastDirectionRef.current;
 
       if (key === " " || key === "spacebar") {
         e.preventDefault();
@@ -119,33 +209,28 @@ const Snake: React.FC = () => {
 
       if (!isPlaying || gameOver) return;
 
-      let newDirection = { ...currentDirection };
-
       switch (key) {
         case "arrowup":
         case "w":
-          if (currentDirection.y === 0) newDirection = { x: 0, y: -1 };
+          changeDirection({ x: 0, y: -1 });
           break;
         case "arrowdown":
         case "s":
-          if (currentDirection.y === 0) newDirection = { x: 0, y: 1 };
+          changeDirection({ x: 0, y: 1 });
           break;
         case "arrowleft":
         case "a":
-          if (currentDirection.x === 0) newDirection = { x: -1, y: 0 };
+          changeDirection({ x: -1, y: 0 });
           break;
         case "arrowright":
         case "d":
-          if (currentDirection.x === 0) newDirection = { x: 1, y: 0 };
+          changeDirection({ x: 1, y: 0 });
           break;
         default:
           return;
       }
-
-      setDirection(newDirection);
-      lastDirectionRef.current = newDirection;
     },
-    [isPlaying, gameOver, resetGame]
+    [isPlaying, gameOver, resetGame, changeDirection]
   );
 
   useEffect(() => {
@@ -188,6 +273,8 @@ const Snake: React.FC = () => {
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         className="snake-game__board"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
         style={{
           width: `${GRID_SIZE * CELL_SIZE}px`,
           height: `${GRID_SIZE * CELL_SIZE}px`,
@@ -277,9 +364,59 @@ const Snake: React.FC = () => {
         </motion.button>
       )}
 
+      {/* Mobile Controls */}
+      {isMobile && isPlaying && !gameOver && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="snake-game__mobile-controls"
+        >
+          <div className="snake-game__d-pad">
+            <motion.button
+              whileTap={{ scale: 0.9 }}
+              onClick={() => changeDirection({ x: 0, y: -1 })}
+              className="snake-game__control-btn snake-game__control-btn--up"
+              aria-label="Move Up"
+            >
+              ⬆️
+            </motion.button>
+            <div className="snake-game__horizontal-controls">
+              <motion.button
+                whileTap={{ scale: 0.9 }}
+                onClick={() => changeDirection({ x: -1, y: 0 })}
+                className="snake-game__control-btn snake-game__control-btn--left"
+                aria-label="Move Left"
+              >
+                ⬅️
+              </motion.button>
+              <motion.button
+                whileTap={{ scale: 0.9 }}
+                onClick={() => changeDirection({ x: 1, y: 0 })}
+                className="snake-game__control-btn snake-game__control-btn--right"
+                aria-label="Move Right"
+              >
+                ➡️
+              </motion.button>
+            </div>
+            <motion.button
+              whileTap={{ scale: 0.9 }}
+              onClick={() => changeDirection({ x: 0, y: 1 })}
+              className="snake-game__control-btn snake-game__control-btn--down"
+              aria-label="Move Down"
+            >
+              ⬇️
+            </motion.button>
+          </div>
+        </motion.div>
+      )}
+
       {/* Instructions */}
       <div className="snake-game__controls">
-        <p>🎮 Controls: Arrow Keys or WASD • Space: Start/Restart</p>
+        <p>
+          {isMobile
+            ? "📱 Controls: Swipe to move • Tap to start/restart"
+            : "🎮 Controls: Arrow Keys or WASD • Space: Start/Restart"}
+        </p>
       </div>
     </div>
   );

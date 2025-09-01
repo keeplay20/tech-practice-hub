@@ -34,7 +34,7 @@ const About: React.FC = () => {
       description: "Building features for millions of fantasy sports users",
     },
     {
-      year: "8+ Years",
+      year: "10+ Years",
       title: "Software Development Experience",
       description: "From technical consulting to senior development roles",
     },

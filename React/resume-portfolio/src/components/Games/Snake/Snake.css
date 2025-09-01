@@ -113,6 +113,105 @@
   margin: 0;
 }
 
+/* Mobile Controls */
+.snake-game__mobile-controls {
+  margin-bottom: 1.5rem;
+}
+
+.snake-game__d-pad {
+  display: grid;
+  grid-template-areas:
+    ". up ."
+    "left . right"
+    ". down .";
+  gap: 0.5rem;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.snake-game__control-btn {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  border: 2px solid var(--accent-color);
+  background: var(--card-bg);
+  color: var(--accent-color);
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.snake-game__control-btn:active {
+  background: var(--accent-color);
+  color: var(--card-bg);
+  transform: scale(0.95);
+}
+
+.snake-game__control-btn:hover {
+  background: rgba(99, 102, 241, 0.1);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+.snake-game__control-btn--up {
+  grid-area: up;
+}
+
+.snake-game__control-btn--down {
+  grid-area: down;
+}
+
+.snake-game__control-btn--left {
+  grid-area: left;
+}
+
+.snake-game__control-btn--right {
+  grid-area: right;
+}
+
+.snake-game__horizontal-controls {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  grid-area: left / left / right / right;
+  gap: 4rem;
+}
+
+/* Mobile optimizations */
+@media (max-width: 480px) {
+  .snake-game {
+    padding: 1rem;
+  }
+
+  .snake-game__board {
+    transform: scale(0.9);
+    margin-bottom: 1rem;
+  }
+
+  .snake-game__scoreboard {
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .snake-game__score-value {
+    font-size: 1.5rem;
+  }
+
+  .snake-game__control-btn {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.25rem;
+  }
+
+  .snake-game__horizontal-controls {
+    gap: 3rem;
+  }
+}
+
 @media (min-width: 768px) {
   .snake-game__board {
     transform: scale(1.2);

@@ -1,7 +1,6 @@
 import React, { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { projects, projectCategories } from "../../data/portfolio";
-import { Project } from "../../types";
 import "./Projects.css";
 
 const Projects: React.FC = () => {

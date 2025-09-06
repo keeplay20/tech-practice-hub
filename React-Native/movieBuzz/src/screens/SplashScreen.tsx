@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import { View, Image } from "react-native";
-import { StyleSheet } from "react-native";
+import { View, Image, StyleSheet } from "react-native";
+import { SplashScreenProps } from "../types";
 
-const SplashScreen = ({ navigation }: any) => {
+const SplashScreen: React.FC<SplashScreenProps> = ({ navigation }) => {
   // This is the splash screen component that displays the Netflix logo. After 3 seconds navigate to UserScreen
   useEffect(() => {
     const timer = setTimeout(() => {

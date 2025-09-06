@@ -7,7 +7,13 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "dark",
     "description": "Discover and explore movies with MovieBuzz - your ultimate movie companion app",
-    "keywords": ["movies", "cinema", "entertainment", "tmdb", "trailers"],
+    "keywords": [
+      "movies",
+      "cinema",
+      "entertainment",
+      "tmdb",
+      "trailers"
+    ],
     "githubUrl": "https://github.com/mandarvyas/tech-practice-hub",
     "newArchEnabled": true,
     "splash": {
@@ -15,10 +21,15 @@
       "resizeMode": "contain",
       "backgroundColor": "#000000"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.mandarvyas.moviebuzz"
+      "bundleIdentifier": "com.mandarvyas.moviebuzz",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -49,7 +60,7 @@
     ],
     "extra": {
       "eas": {
-        "projectId": "your-project-id-here"
+        "projectId": "58420d99-21f3-48ed-a96f-7ef9805061ff"
       }
     }
   }

@@ -36,6 +36,7 @@
   "license": "MIT",
   "dependencies": {
     "@expo/vector-icons": "^14.0.2",
+    "@react-native-async-storage/async-storage": "1.23.1",
     "@react-navigation/bottom-tabs": "^6.6.1",
     "@react-navigation/native": "^6.1.18",
     "@react-navigation/stack": "^6.4.1",
@@ -70,7 +71,9 @@
   },
   "expo": {
     "install": {
-      "exclude": ["react-native-safe-area-context"]
+      "exclude": [
+        "react-native-safe-area-context"
+      ]
     }
   },
   "private": false

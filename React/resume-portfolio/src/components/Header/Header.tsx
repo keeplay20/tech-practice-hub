@@ -4,9 +4,10 @@ import "./Header.css";
 
 interface HeaderProps {
   onGameCenterClick: () => void;
+  onProjectsClick: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ onGameCenterClick }) => {
+const Header: React.FC<HeaderProps> = ({ onGameCenterClick, onProjectsClick }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -70,6 +71,16 @@ const Header: React.FC<HeaderProps> = ({ onGameCenterClick }) => {
 
         {/* Action Buttons */}
         <div className="header__actions">
+          <motion.button
+            className="btn btn-ghost header__projects-btn"
+            onClick={onProjectsClick}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <span className="header__projects-icon">🚀</span>
+            <span className="header__projects-text">Projects</span>
+          </motion.button>
+          
           <motion.button
             className="btn btn-ghost header__game-btn"
             onClick={onGameCenterClick}
@@ -136,6 +147,25 @@ const Header: React.FC<HeaderProps> = ({ onGameCenterClick }) => {
                 x: isMobileMenuOpen ? 0 : -20,
               }}
               transition={{ delay: menuItems.length * 0.1 }}
+            >
+              <button
+                className="header__mobile-nav-link header__mobile-projects-btn"
+                onClick={() => {
+                  onProjectsClick();
+                  setIsMobileMenuOpen(false);
+                }}
+              >
+                🚀 Projects
+              </button>
+            </motion.li>
+            <motion.li
+              className="header__mobile-nav-item"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{
+                opacity: isMobileMenuOpen ? 1 : 0,
+                x: isMobileMenuOpen ? 0 : -20,
+              }}
+              transition={{ delay: (menuItems.length + 1) * 0.1 }}
             >
               <button
                 className="header__mobile-nav-link header__mobile-game-btn"

@@ -7,10 +7,11 @@ import About from "./components/About/About";
 import Experience from "./components/Experience/Experience";
 import Skills from "./components/Skills/Skills";
 import GameCenter from "./components/GameCenter/GameCenter";
+import ProjectsPage from "./components/ProjectsPage/ProjectsPage";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 
-type Page = "portfolio" | "games";
+type Page = "portfolio" | "games" | "projects";
 
 function App() {
   const [currentPage, setCurrentPage] = useState<Page>("portfolio");
@@ -26,7 +27,10 @@ function App() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <Header onGameCenterClick={() => setCurrentPage("games")} />
+            <Header 
+              onGameCenterClick={() => setCurrentPage("games")}
+              onProjectsClick={() => setCurrentPage("projects")}
+            />
             <main>
               <Hero />
               <About />
@@ -36,7 +40,7 @@ function App() {
             </main>
             <Footer />
           </motion.div>
-        ) : (
+        ) : currentPage === "games" ? (
           <motion.div
             key="games"
             initial={{ opacity: 0 }}
@@ -45,6 +49,16 @@ function App() {
             transition={{ duration: 0.3 }}
           >
             <GameCenter onBack={() => setCurrentPage("portfolio")} />
+          </motion.div>
+        ) : (
+          <motion.div
+            key="projects"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <ProjectsPage onBack={() => setCurrentPage("portfolio")} />
           </motion.div>
         )}
       </AnimatePresence>

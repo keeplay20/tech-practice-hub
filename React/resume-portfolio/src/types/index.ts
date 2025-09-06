@@ -37,3 +37,32 @@ export interface PersonalInfo {
   linkedin: string;
   github: string;
 }
+
+export interface Project {
+  id: string;
+  title: string;
+  description: string;
+  longDescription: string[];
+  category: "Mobile App" | "Web App" | "Full Stack" | "Other";
+  technologies: string[];
+  features: string[];
+  highlights: string[];
+  status: "Completed" | "In Progress" | "Planned";
+  demoVideo?: string;
+  liveDemo?: string;
+  githubRepo: string;
+  downloadLinks?: {
+    android?: string;
+    ios?: string;
+    apk?: string;
+  };
+  images?: string[];
+  duration: string;
+  teamSize?: number;
+}
+
+export interface ProjectCategory {
+  id: string;
+  name: string;
+  icon: string;
+}

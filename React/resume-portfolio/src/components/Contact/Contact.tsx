@@ -15,13 +15,13 @@ const Contact: React.FC = () => {
       icon: "💼",
       label: "LinkedIn",
       value: contact.linkedin,
-      href: `https://${contact.linkedin}`,
+      href: contact.linkedin,
     },
     {
       icon: "🐙",
       label: "GitHub",
       value: contact.github,
-      href: `https://${contact.github}`,
+      href: contact.github,
     },
   ];
 

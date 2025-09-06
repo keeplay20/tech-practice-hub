@@ -1,16 +1,17 @@
 import React from "react";
 import { View, Image, StyleSheet, TouchableOpacity, Text } from "react-native";
+import { UserScreenProps } from "../types";
 
-const UserScreen = ({ navigation }: any) => {
+const UserScreen: React.FC<UserScreenProps> = ({ navigation }) => {
   const users = [
-    { name: "Emily", image: require("../../assets/User1.png") },
-    { name: "Ron", image: require("../../assets/User2.png") },
-    { name: "Harry", image: require("../../assets/User3.png") },
+    { name: "User 1", image: require("../../assets/User1.png") },
+    { name: "User 2", image: require("../../assets/User2.png") },
+    { name: "User 3", image: require("../../assets/User3.png") },
     { name: "Kids", image: require("../../assets/User4.png") },
   ];
 
   const handleUserPress = (user: { name: string; image: any }) => {
-    navigation.navigate("HomeScreen", { user });
+    navigation.navigate("HomeScreen");
   };
 
   return (
@@ -24,12 +25,12 @@ const UserScreen = ({ navigation }: any) => {
             resizeMode="contain"
           />
         </View>
-        <TouchableOpacity style={styles.editIcon}>
+        {/* <TouchableOpacity style={styles.editIcon}>
           <Image
             source={require("../../assets/edit.png")}
             style={styles.icon}
           />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
 
       {/* Body content goes here */}
@@ -53,7 +54,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#000",
-    paddingTop: 60,
+    paddingTop: 100,
     paddingHorizontal: 20,
   },
   headerRow: {
@@ -67,7 +68,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   logo: {
-    height: 45,
+    height: 50,
   },
   editIcon: {
     position: "absolute",

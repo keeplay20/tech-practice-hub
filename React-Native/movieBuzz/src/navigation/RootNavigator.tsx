@@ -3,10 +3,11 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import SplashScreen from "../screens/SplashScreen";
 import UserScreen from "../screens/UserScreen";
-import HomeScreen from "../screens/HomeScreen";
+import DetailScreen from "../screens/DetailScreen";
 import BottomTabs from "./BottomTabs";
+import { RootStackParamList } from "../types";
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const RootNavigator = () => {
   return (
@@ -23,10 +24,15 @@ const RootNavigator = () => {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name={"HomeScreen"}
+          name="HomeScreen"
           component={BottomTabs}
           options={{ headerShown: false }}
-        ></Stack.Screen>
+        />
+        <Stack.Screen
+          name="DetailScreen"
+          component={DetailScreen}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

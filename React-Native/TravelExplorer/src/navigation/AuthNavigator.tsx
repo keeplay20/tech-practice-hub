@@ -4,6 +4,7 @@ import { colors } from "../styles/colors";
 
 // Import screens
 import LoginScreen from "../screens/auth/LoginScreen";
+import SignupScreen from "../screens/auth/SignupScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +27,13 @@ export default function AuthNavigator(): React.JSX.Element {
         component={LoginScreen}
         options={{
           headerShown: false, // Hide header for login screen
+        }}
+      />
+      <Stack.Screen
+        name="Signup"
+        component={SignupScreen}
+        options={{
+          headerShown: false, // Hide header for signup screen
         }}
       />
     </Stack.Navigator>

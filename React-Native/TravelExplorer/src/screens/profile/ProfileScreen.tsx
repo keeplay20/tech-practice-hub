@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -6,18 +6,97 @@ import {
   SafeAreaView,
   ScrollView,
   TouchableOpacity,
-  Image,
+  Alert,
 } from "react-native";
+import { Image } from "expo-image";
+import * as ImagePicker from "expo-image-picker";
 import { colors } from "../../styles/colors";
+import { useAuthStore } from "../../stores/authStore";
 
 export default function ProfileScreen(): React.JSX.Element {
+  const { user, logout, isLoading } = useAuthStore();
+  const [profileImage, setProfileImage] = useState<string | null>(null);
+
+  const handleLogout = async () => {
+    await logout();
+  };
+
+  const pickImage = async () => {
+    // Request permission
+    const permissionResult =
+      await ImagePicker.requestMediaLibraryPermissionsAsync();
+
+    if (permissionResult.granted === false) {
+      Alert.alert(
+        "Permission Required",
+        "Permission to access camera roll is required!"
+      );
+      return;
+    }
+
+    // Show options
+    Alert.alert("Select Photo", "Choose an option", [
+      { text: "Camera", onPress: takePhoto },
+      { text: "Gallery", onPress: selectFromGallery },
+      { text: "Cancel", style: "cancel" },
+    ]);
+  };
+
+  const takePhoto = async () => {
+    const permissionResult = await ImagePicker.requestCameraPermissionsAsync();
+
+    if (permissionResult.granted === false) {
+      Alert.alert(
+        "Permission Required",
+        "Permission to access camera is required!"
+      );
+      return;
+    }
+
+    const result = await ImagePicker.launchCameraAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      allowsEditing: true,
+      aspect: [1, 1],
+      quality: 0.8,
+    });
+
+    if (!result.canceled) {
+      setProfileImage(result.assets[0].uri);
+    }
+  };
+
+  const selectFromGallery = async () => {
+    const result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      allowsEditing: true,
+      aspect: [1, 1],
+      quality: 0.8,
+    });
+
+    if (!result.canceled) {
+      setProfileImage(result.assets[0].uri);
+    }
+  };
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
         <View style={styles.header}>
-          <View style={styles.profileImageContainer}>
-            <Text style={styles.profileImagePlaceholder}>👤</Text>
-          </View>
+          <TouchableOpacity
+            style={styles.profileImageContainer}
+            onPress={pickImage}
+          >
+            {profileImage ? (
+              <Image
+                source={{ uri: profileImage }}
+                style={styles.profileImage}
+              />
+            ) : (
+              <Text style={styles.profileImagePlaceholder}>👤</Text>
+            )}
+            <View style={styles.cameraIcon}>
+              <Text style={styles.cameraIconText}>📷</Text>
+            </View>
+          </TouchableOpacity>
           <Text style={styles.name}>John Traveler</Text>
           <Text style={styles.email}>john@travelexplorer.com</Text>
         </View>
@@ -58,8 +137,14 @@ export default function ProfileScreen(): React.JSX.Element {
             <Text style={styles.menuArrow}>›</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={[styles.menuItem, styles.logoutItem]}>
-            <Text style={[styles.menuText, styles.logoutText]}>🚪 Logout</Text>
+          <TouchableOpacity
+            style={[styles.menuItem, styles.logoutItem]}
+            onPress={handleLogout}
+            disabled={isLoading}
+          >
+            <Text style={[styles.menuText, styles.logoutText]}>
+              🚪 {isLoading ? "Logging out..." : "Logout"}
+            </Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
@@ -148,5 +233,27 @@ const styles = StyleSheet.create({
   },
   logoutText: {
     color: colors.error,
+  },
+  profileImage: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+  },
+  cameraIcon: {
+    position: "absolute",
+    bottom: 0,
+    right: 0,
+    backgroundColor: colors.primary,
+    width: 30,
+    height: 30,
+    borderRadius: 15,
+    justifyContent: "center",
+    alignItems: "center",
+    borderWidth: 2,
+    borderColor: colors.surface,
+  },
+  cameraIconText: {
+    fontSize: 12,
+    color: colors.surface,
   },
 });

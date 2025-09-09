@@ -13,29 +13,40 @@ import {
 import { colors } from "../../styles/colors";
 import { useAuthStore } from "../../stores/authStore";
 
-interface LoginScreenProps {
+interface SignupScreenProps {
   navigation: any;
 }
 
-export default function LoginScreen({
+export default function SignupScreen({
   navigation,
-}: LoginScreenProps): React.JSX.Element {
+}: SignupScreenProps): React.JSX.Element {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { login, isLoading, error, clearError } = useAuthStore();
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const { signup, isLoading, error, clearError } = useAuthStore();
 
-  const handleLogin = async () => {
-    if (!email.trim() || !password.trim()) {
-      Alert.alert("Error", "Please enter both email and password");
+  const handleSignup = async () => {
+    if (!email.trim() || !password.trim() || !confirmPassword.trim()) {
+      Alert.alert("Error", "Please fill in all fields");
+      return;
+    }
+
+    if (password.length < 6) {
+      Alert.alert("Error", "Password must be at least 6 characters");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      Alert.alert("Error", "Passwords do not match");
       return;
     }
 
     clearError();
-    await login(email, password);
+    await signup(email, password);
   };
 
-  const handleSignUp = () => {
-    navigation.navigate("Signup");
+  const goToLogin = () => {
+    navigation.navigate("Login");
   };
 
   return (
@@ -47,8 +58,10 @@ export default function LoginScreen({
         <View style={styles.content}>
           <View style={styles.header}>
             <Text style={styles.logo}>🌍</Text>
-            <Text style={styles.title}>Travel Explorer</Text>
-            <Text style={styles.subtitle}>Welcome back, adventurer!</Text>
+            <Text style={styles.title}>Join Travel Explorer</Text>
+            <Text style={styles.subtitle}>
+              Create your account to start exploring!
+            </Text>
           </View>
 
           <View style={styles.form}>
@@ -74,29 +87,41 @@ export default function LoginScreen({
               autoCorrect={false}
             />
 
+            <TextInput
+              style={styles.input}
+              placeholder="Confirm Password"
+              placeholderTextColor={colors.textSecondary}
+              value={confirmPassword}
+              onChangeText={setConfirmPassword}
+              secureTextEntry
+              autoCapitalize="none"
+              autoCorrect={false}
+            />
+
             <TouchableOpacity
-              style={styles.loginButton}
-              onPress={handleLogin}
+              style={[
+                styles.signupButton,
+                isLoading && styles.signupButtonDisabled,
+              ]}
+              onPress={handleSignup}
               disabled={isLoading}
             >
-              <Text style={styles.loginButtonText}>
-                {isLoading ? "Logging in..." : "Login"}
+              <Text style={styles.signupButtonText}>
+                {isLoading ? "Creating Account..." : "Sign Up"}
               </Text>
             </TouchableOpacity>
+
             {error && (
               <View style={styles.errorContainer}>
                 <Text style={styles.errorText}>{error}</Text>
               </View>
             )}
-            <TouchableOpacity style={styles.forgotPassword}>
-              <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
-            </TouchableOpacity>
           </View>
 
           <View style={styles.footer}>
-            <Text style={styles.footerText}>{`Don't have an account?`} </Text>
-            <TouchableOpacity onPress={handleSignUp}>
-              <Text style={styles.signUpText}>Sign Up</Text>
+            <Text style={styles.footerText}>Already have an account? </Text>
+            <TouchableOpacity onPress={goToLogin}>
+              <Text style={styles.loginText}>Sign In</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -150,41 +175,20 @@ const styles = StyleSheet.create({
     color: colors.text,
     marginBottom: 16,
   },
-  loginButton: {
-    backgroundColor: colors.primary,
+  signupButton: {
+    backgroundColor: colors.secondary,
     borderRadius: 12,
     padding: 16,
     alignItems: "center",
     marginBottom: 16,
   },
-  loginButtonText: {
+  signupButtonDisabled: {
+    backgroundColor: colors.textSecondary,
+  },
+  signupButtonText: {
     color: colors.surface,
     fontSize: 16,
     fontWeight: "bold",
-  },
-  forgotPassword: {
-    alignItems: "center",
-  },
-  forgotPasswordText: {
-    color: colors.primary,
-    fontSize: 14,
-  },
-  footer: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  footerText: {
-    color: colors.textSecondary,
-    fontSize: 14,
-  },
-  signUpText: {
-    color: colors.primary,
-    fontSize: 14,
-    fontWeight: "bold",
-  },
-  loginButtonDisabled: {
-    backgroundColor: colors.textSecondary,
   },
   errorContainer: {
     backgroundColor: "#ffebee",
@@ -196,5 +200,19 @@ const styles = StyleSheet.create({
     color: colors.error,
     fontSize: 14,
     textAlign: "center",
+  },
+  footer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  footerText: {
+    color: colors.textSecondary,
+    fontSize: 14,
+  },
+  loginText: {
+    color: colors.primary,
+    fontSize: 14,
+    fontWeight: "bold",
   },
 });

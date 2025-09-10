@@ -4,10 +4,14 @@ import { colors } from "../../styles/colors";
 
 export default function HomeScreen(): React.JSX.Element {
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView
+      style={[styles.container, { backgroundColor: colors.background }]}
+    >
       <View style={styles.content}>
-        <Text style={styles.title}>🌍 Welcome to Travel Explorer</Text>
-        <Text style={styles.subtitle}>
+        <Text style={[styles.title, { color: colors.text }]}>
+          🌍 Welcome to Travel Explorer
+        </Text>
+        <Text style={[styles.subtitle, { color: colors.textSecondary }]}>
           Discover amazing destinations around the world!
         </Text>
       </View>
@@ -18,7 +22,6 @@ export default function HomeScreen(): React.JSX.Element {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.background,
   },
   content: {
     flex: 1,
@@ -29,13 +32,11 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    color: colors.text,
     textAlign: "center",
     marginBottom: 16,
   },
   subtitle: {
     fontSize: 16,
-    color: colors.textSecondary,
     textAlign: "center",
   },
 });

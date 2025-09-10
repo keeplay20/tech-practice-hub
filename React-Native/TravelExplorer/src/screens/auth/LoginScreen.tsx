@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   View,
   Text,
@@ -24,6 +24,9 @@ export default function LoginScreen({
   const [password, setPassword] = useState("");
   const { login, isLoading, error, clearError } = useAuthStore();
 
+  const emailInputRef = useRef<TextInput>(null);
+  const passwordInputRef = useRef<TextInput>(null);
+
   const handleLogin = async () => {
     if (!email.trim() || !password.trim()) {
       Alert.alert("Error", "Please enter both email and password");
@@ -39,7 +42,9 @@ export default function LoginScreen({
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView
+      style={[styles.container, { backgroundColor: colors.background }]}
+    >
       <KeyboardAvoidingView
         style={styles.keyboardView}
         behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -47,13 +52,25 @@ export default function LoginScreen({
         <View style={styles.content}>
           <View style={styles.header}>
             <Text style={styles.logo}>🌍</Text>
-            <Text style={styles.title}>Travel Explorer</Text>
-            <Text style={styles.subtitle}>Welcome back, adventurer!</Text>
+            <Text style={[styles.title, { color: colors.text }]}>
+              Travel Explorer
+            </Text>
+            <Text style={[styles.subtitle, { color: colors.textSecondary }]}>
+              Welcome back, adventurer!
+            </Text>
           </View>
 
           <View style={styles.form}>
             <TextInput
-              style={styles.input}
+              ref={emailInputRef}
+              style={[
+                styles.input,
+                {
+                  backgroundColor: colors.surface,
+                  borderColor: colors.border,
+                  color: colors.text,
+                },
+              ]}
               placeholder="Email"
               placeholderTextColor={colors.textSecondary}
               value={email}
@@ -61,10 +78,25 @@ export default function LoginScreen({
               keyboardType="email-address"
               autoCapitalize="none"
               autoCorrect={false}
+              returnKeyType="next"
+              onSubmitEditing={() => passwordInputRef.current?.focus()}
+              blurOnSubmit={false}
+              {...(Platform.OS === "android" && {
+                underlineColorAndroid: "transparent",
+                textAlignVertical: "center",
+              })}
             />
 
             <TextInput
-              style={styles.input}
+              ref={passwordInputRef}
+              style={[
+                styles.input,
+                {
+                  backgroundColor: colors.surface,
+                  borderColor: colors.border,
+                  color: colors.text,
+                },
+              ]}
               placeholder="Password"
               placeholderTextColor={colors.textSecondary}
               value={password}
@@ -72,31 +104,49 @@ export default function LoginScreen({
               secureTextEntry
               autoCapitalize="none"
               autoCorrect={false}
+              returnKeyType="done"
+              onSubmitEditing={handleLogin}
+              {...(Platform.OS === "android" && {
+                underlineColorAndroid: "transparent",
+                textAlignVertical: "center",
+              })}
             />
 
             <TouchableOpacity
-              style={styles.loginButton}
+              style={[styles.loginButton, { backgroundColor: colors.primary }]}
               onPress={handleLogin}
               disabled={isLoading}
             >
-              <Text style={styles.loginButtonText}>
+              <Text
+                style={[styles.loginButtonText, { color: colors.background }]}
+              >
                 {isLoading ? "Logging in..." : "Login"}
               </Text>
             </TouchableOpacity>
             {error && (
               <View style={styles.errorContainer}>
-                <Text style={styles.errorText}>{error}</Text>
+                <Text style={[styles.errorText, { color: colors.error }]}>
+                  {error}
+                </Text>
               </View>
             )}
             <TouchableOpacity style={styles.forgotPassword}>
-              <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
+              <Text
+                style={[styles.forgotPasswordText, { color: colors.primary }]}
+              >
+                Forgot Password?
+              </Text>
             </TouchableOpacity>
           </View>
 
           <View style={styles.footer}>
-            <Text style={styles.footerText}>{`Don't have an account?`} </Text>
+            <Text style={[styles.footerText, { color: colors.textSecondary }]}>
+              {`Don't have an account?`}{" "}
+            </Text>
             <TouchableOpacity onPress={handleSignUp}>
-              <Text style={styles.signUpText}>Sign Up</Text>
+              <Text style={[styles.signUpText, { color: colors.primary }]}>
+                Sign Up
+              </Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -108,7 +158,6 @@ export default function LoginScreen({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.background,
   },
   keyboardView: {
     flex: 1,
@@ -129,36 +178,34 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontWeight: "bold",
-    color: colors.text,
     marginBottom: 8,
   },
   subtitle: {
     fontSize: 16,
-    color: colors.textSecondary,
     textAlign: "center",
   },
   form: {
     marginBottom: 30,
   },
   input: {
-    backgroundColor: colors.surface,
     borderWidth: 1,
-    borderColor: colors.border,
     borderRadius: 12,
     padding: 16,
     fontSize: 16,
-    color: colors.text,
     marginBottom: 16,
+    minHeight: 50,
+    ...(Platform.OS === "android" && {
+      paddingVertical: 12,
+      paddingHorizontal: 16,
+    }),
   },
   loginButton: {
-    backgroundColor: colors.primary,
     borderRadius: 12,
     padding: 16,
     alignItems: "center",
     marginBottom: 16,
   },
   loginButtonText: {
-    color: colors.surface,
     fontSize: 16,
     fontWeight: "bold",
   },
@@ -166,7 +213,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   forgotPasswordText: {
-    color: colors.primary,
     fontSize: 14,
   },
   footer: {
@@ -175,25 +221,21 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   footerText: {
-    color: colors.textSecondary,
     fontSize: 14,
   },
   signUpText: {
-    color: colors.primary,
     fontSize: 14,
     fontWeight: "bold",
   },
   loginButtonDisabled: {
-    backgroundColor: colors.textSecondary,
+    opacity: 0.6,
   },
   errorContainer: {
-    backgroundColor: "#ffebee",
     padding: 12,
     borderRadius: 8,
     marginTop: 16,
   },
   errorText: {
-    color: colors.error,
     fontSize: 14,
     textAlign: "center",
   },

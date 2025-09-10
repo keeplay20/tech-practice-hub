@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   View,
   Text,
@@ -25,6 +25,10 @@ export default function SignupScreen({
   const [confirmPassword, setConfirmPassword] = useState("");
   const { signup, isLoading, error, clearError } = useAuthStore();
 
+  const emailInputRef = useRef<TextInput>(null);
+  const passwordInputRef = useRef<TextInput>(null);
+  const confirmPasswordInputRef = useRef<TextInput>(null);
+
   const handleSignup = async () => {
     if (!email.trim() || !password.trim() || !confirmPassword.trim()) {
       Alert.alert("Error", "Please fill in all fields");
@@ -50,7 +54,9 @@ export default function SignupScreen({
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView
+      style={[styles.container, { backgroundColor: colors.background }]}
+    >
       <KeyboardAvoidingView
         style={styles.keyboardView}
         behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -58,14 +64,17 @@ export default function SignupScreen({
         <View style={styles.content}>
           <View style={styles.header}>
             <Text style={styles.logo}>🌍</Text>
-            <Text style={styles.title}>Join Travel Explorer</Text>
-            <Text style={styles.subtitle}>
+            <Text style={[styles.title, { color: colors.text }]}>
+              Join Travel Explorer
+            </Text>
+            <Text style={[styles.subtitle, { color: colors.textSecondary }]}>
               Create your account to start exploring!
             </Text>
           </View>
 
           <View style={styles.form}>
             <TextInput
+              ref={emailInputRef}
               style={styles.input}
               placeholder="Email"
               placeholderTextColor={colors.textSecondary}
@@ -74,9 +83,17 @@ export default function SignupScreen({
               keyboardType="email-address"
               autoCapitalize="none"
               autoCorrect={false}
+              returnKeyType="next"
+              onSubmitEditing={() => passwordInputRef.current?.focus()}
+              blurOnSubmit={false}
+              {...(Platform.OS === "android" && {
+                underlineColorAndroid: "transparent",
+                textAlignVertical: "center",
+              })}
             />
 
             <TextInput
+              ref={passwordInputRef}
               style={styles.input}
               placeholder="Password"
               placeholderTextColor={colors.textSecondary}
@@ -85,9 +102,17 @@ export default function SignupScreen({
               secureTextEntry
               autoCapitalize="none"
               autoCorrect={false}
+              returnKeyType="next"
+              onSubmitEditing={() => confirmPasswordInputRef.current?.focus()}
+              blurOnSubmit={false}
+              {...(Platform.OS === "android" && {
+                underlineColorAndroid: "transparent",
+                textAlignVertical: "center",
+              })}
             />
 
             <TextInput
+              ref={confirmPasswordInputRef}
               style={styles.input}
               placeholder="Confirm Password"
               placeholderTextColor={colors.textSecondary}
@@ -96,6 +121,12 @@ export default function SignupScreen({
               secureTextEntry
               autoCapitalize="none"
               autoCorrect={false}
+              returnKeyType="done"
+              onSubmitEditing={handleSignup}
+              {...(Platform.OS === "android" && {
+                underlineColorAndroid: "transparent",
+                textAlignVertical: "center",
+              })}
             />
 
             <TouchableOpacity
@@ -133,7 +164,6 @@ export default function SignupScreen({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.background,
   },
   keyboardView: {
     flex: 1,
@@ -154,50 +184,46 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontWeight: "bold",
-    color: colors.text,
     marginBottom: 8,
   },
   subtitle: {
     fontSize: 16,
-    color: colors.textSecondary,
     textAlign: "center",
   },
   form: {
     marginBottom: 30,
   },
   input: {
-    backgroundColor: colors.surface,
     borderWidth: 1,
-    borderColor: colors.border,
     borderRadius: 12,
     padding: 16,
     fontSize: 16,
-    color: colors.text,
     marginBottom: 16,
+    minHeight: 50,
+    ...(Platform.OS === "android" && {
+      paddingVertical: 12,
+      paddingHorizontal: 16,
+    }),
   },
   signupButton: {
-    backgroundColor: colors.secondary,
     borderRadius: 12,
     padding: 16,
     alignItems: "center",
     marginBottom: 16,
   },
   signupButtonDisabled: {
-    backgroundColor: colors.textSecondary,
+    opacity: 0.6,
   },
   signupButtonText: {
-    color: colors.surface,
     fontSize: 16,
     fontWeight: "bold",
   },
   errorContainer: {
-    backgroundColor: "#ffebee",
     padding: 12,
     borderRadius: 8,
     marginTop: 16,
   },
   errorText: {
-    color: colors.error,
     fontSize: 14,
     textAlign: "center",
   },
@@ -207,11 +233,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   footerText: {
-    color: colors.textSecondary,
     fontSize: 14,
   },
   loginText: {
-    color: colors.primary,
     fontSize: 14,
     fontWeight: "bold",
   },

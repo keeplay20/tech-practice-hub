@@ -13,15 +13,8 @@
 |------------------|----------------------------------------------------------------|
 | `CSS/`           | Mini projects using pure CSS (animations, layouts, themes).   |
 | `JavaScript/`    | Core JS concepts, small apps, and coding interviews.          |
-| `TypeScript/`    | Strongly typed practice with concepts and apps.               |
 | `React-Native/`  | Mobile app development with React Native and components.      |
-| `GraphQL/`       | Queries, mutations, Apollo client/server examples.            |
-| `AWS/`           | AWS service demos and deployment guides.                      |
 | `DSA/`           | Data structures & algorithms by topic with code & theory.     |
-| `HLD/`           | High-Level System Design diagrams, case studies.              |
-| `LLD/`           | Low-Level Design, OOP design patterns and practices.          |
-| `AI/`            | AI/ML basics, small Python projects, and model playgrounds.   |
-| `Tech-Refinement/` | Dev best practices, tooling, productivity hacks, etc.      |
 
 ---
 
@@ -74,3 +67,4 @@
 ---
 
 > 🧠 *This repo is built with discipline, passion, and a love for tech. Contributions, feedback, and forks are welcome!*
+

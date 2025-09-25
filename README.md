@@ -39,7 +39,7 @@
 ## 🛠️ Tools & Technologies
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=html,css,js,ts,react,nextjs,nodejs,graphql,aws,git,github,figma,vscode&theme=dark" />
+  <img src="https://skillicons.dev/icons?i=html,css,js,react,git,vscode&theme=dark" />
 </p>
 
 ---
@@ -67,4 +67,5 @@
 ---
 
 > 🧠 *This repo is built with discipline, passion, and a love for tech. Contributions, feedback, and forks are welcome!*
+
 

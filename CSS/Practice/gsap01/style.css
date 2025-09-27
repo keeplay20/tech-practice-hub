@@ -2,19 +2,97 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: gilroy;
+  font-family: poppins;
 }
 
 html,
 body {
   width: 100%;
   height: 100%;
+  background-color: #334443;
 }
 
 #page1 {
   width: 100%;
   height: 100%;
-  background-color: black;
+  background-color: #334443;
+}
+
+#page1 nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 40px;
+  border-bottom: 0.5px solid #faf8f1;
+}
+
+#page1 nav .logo h2 {
+  color: #faf8f1;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+#page1 nav .nav-links {
+  display: flex;
+  gap: 40px;
+}
+
+#page1 nav .nav-links a {
+  text-decoration: none;
+  color: #faf8f1;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+li {
+  list-style: none;
+}
+
+.hero {
+  width: 100%;
+  display: flex;
+  padding: 40px;
+  align-items: center;
+  gap: 60px;
+}
+
+.hero-content {
+  width: 60%;
+  color: #faf8f1;
+  font-size: 50px;
+  font-weight: 200;
+  line-height: 1.2;
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+}
+
+.hero-content h2 {
+  font-size: 50px;
+  font-weight: 200;
+  line-height: 1.2;
+}
+
+.hero img {
+  border-radius: 10%;
+  width: 40%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.word-container {
+  position: relative;
+  display: inline-block;
+  min-width: 200px; /* Adjust based on your longest word */
+}
+
+.word {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform: translateY(20px);
 }
 
 #page2 {
@@ -28,12 +106,12 @@ body {
   text-transform: uppercase;
   font-size: 35vw;
   font-weight: 500;
-  color: rgb(213, 225, 225);
+  color: #faf8f1;
   font-family: Poppins;
 }
 
 #page3 {
   width: 100%;
   height: 100%;
-  background-color: black;
+  background-color: #334443;
 }

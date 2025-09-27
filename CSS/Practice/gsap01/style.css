@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: gilroy;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+#page1 {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+
+#page2 {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  padding: 5vw 0;
+}
+
+#page2 h1 {
+  text-transform: uppercase;
+  font-size: 35vw;
+  font-weight: 500;
+  color: rgb(213, 225, 225);
+  font-family: Poppins;
+}
+
+#page3 {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}

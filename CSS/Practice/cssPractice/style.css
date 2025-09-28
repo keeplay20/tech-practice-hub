@@ -23,6 +23,7 @@ body {
 }
 
 .dropping-texts {
+  padding-left: 10px;
   display: inline-block;
   width: 180px;
   text-align: left;
@@ -127,5 +128,37 @@ body {
   }
   100% {
     color: #f44336;
+  }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding-left: 100px;
+}
+
+/* Cursor */
+.cursor {
+  margin: 0 auto;
+  border-right: 2px solid rgba(156, 76, 76, 0.75);
+  font-size: 30px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+/* Animation */
+.typewriter-animation {
+  animation: typewriter 8s steps(50) 1s infinite normal;
+}
+@keyframes typewriter {
+  0% {
+    width: 0;
+  }
+  40%,
+  60% {
+    width: 46%;
+  }
+  100% {
+    width: 0;
   }
 }

@@ -159,4 +159,9 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-
+gsap.from(".nav-links", {
+  opacity: 0,
+  duration: 0.5,
+  stagger: 0.2,
+  ease: "power3.inOut",
+});

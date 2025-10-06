@@ -2,7 +2,7 @@
 <h1 align="center">📚 Tech Practice Hub</h1>
 
 <p align="center">
-  <b>🚀 A personal knowledge vault & practice lab for mastering full-stack development, system design, AI, and more.</b>
+  <b>🚀 A personal knowledge vault & practice lab for mastering frontend, DSA & more.</b>
 </p>
 
 ---
@@ -67,5 +67,6 @@
 ---
 
 > 🧠 *This repo is built with discipline, passion, and a love for tech. Contributions, feedback, and forks are welcome!*
+
 
 

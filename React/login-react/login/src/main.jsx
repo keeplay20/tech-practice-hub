@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Login } from "./components/login/login";
+import { Home } from "./components/home/home";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

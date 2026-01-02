@@ -1,0 +1,95 @@
+.destination-section {
+  background-color: grey;
+  height: 30%;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.destination-section-content {
+  max-width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.destination-section-content p {
+  color: #000;
+}
+
+.destination-section-content-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.destination-section-content-description {
+  font-size: 16px;
+  color: #000;
+}
+
+.destination-section-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.destination-section-card {
+  position: relative;
+  background-color: transparent;
+  margin-left: 50px;
+  margin-top: 20px;
+}
+
+.overlay-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 12px;
+  border-radius: 10px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0.3),
+    transparent
+  );
+  color: #fff;
+}
+
+.destination-section-card img {
+  border-radius: 10px;
+  width: 200px;
+  height: 250px;
+  object-fit: cover;
+}
+
+.destination-section-card-description-container {
+  display: flex;
+  gap: 10px;
+  flex-direction: row;
+  padding-top: 2px;
+}
+
+.destination-section-card-title {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.destination-section-card-description {
+  font-size: 12px;
+}
+
+.separator {
+  opacity: 0.6;
+}
+
+.destination-section-card-ratings {
+  font-size: 12px;
+}
+
+.destination-section-card-location {
+  font-size: 12px;
+}

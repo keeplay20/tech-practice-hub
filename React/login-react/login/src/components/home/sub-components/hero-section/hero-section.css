@@ -1,0 +1,11 @@
+.hero-section {
+  color: #fff;
+  margin: 10px;
+  border-radius: 10px;
+  text-align: center;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

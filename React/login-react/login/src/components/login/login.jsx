@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./login.css";
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -15,6 +17,7 @@ export const Login = () => {
 
   const handleLogin = () => {
     console.log("Login");
+    navigate("/home");
   };
 
   return (

@@ -46,7 +46,6 @@ img {
   padding-top: 60px;
   display: flex;
   flex-direction: row;
-  gap: 10px;
 }
 
 h6 {
@@ -82,7 +81,7 @@ span {
   padding-left: 10px;
   flex-direction: row;
   align-items: center;
-  background-color: #ff6f61;
+  background-color: #8d9daf;
   color: #f3eeee;
   gap: 10px;
   border-radius: 10px;

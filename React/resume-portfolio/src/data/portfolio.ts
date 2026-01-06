@@ -167,7 +167,7 @@ export const skillCategories: SkillCategory[] = [
     name: "DevOps & Tools",
     icon: "🚀",
     description: "Development tools and deployment technologies",
-    skills: ["Git & GitHub", "Jenkins", "GitHub Actions", "AWS", "Linux"],
+    skills: ["Jenkins", "GitHub Actions"],
   },
   {
     id: "mobile",
@@ -298,41 +298,6 @@ export const projects: Project[] = [
     teamSize: 1,
   },
   {
-    id: "animation-features",
-    title: "React Native Animation Features",
-    description:
-      "Collection of advanced React Native animations and gesture-based interactions showcasing modern mobile UI patterns.",
-    longDescription: [
-      "A comprehensive collection of React Native animation examples demonstrating modern mobile UI patterns and interactions.",
-      "Features various animation libraries and techniques including Reanimated 2, gesture handlers, and custom transitions.",
-    ],
-    category: "Mobile App",
-    technologies: [
-      "React Native",
-      "TypeScript",
-      "React Native Reanimated 2",
-      "React Native Gesture Handler",
-      "Expo",
-    ],
-    features: [
-      "Advanced Animations",
-      "Gesture-based Interactions",
-      "Custom Transitions",
-      "Performant UI Components",
-    ],
-    highlights: [
-      "📱 Advanced React Native animations",
-      "✨ Smooth 60fps interactions",
-      "🎯 Gesture-based UI patterns",
-      "⚡ Optimized performance",
-    ],
-    status: "Completed",
-    githubRepo:
-      "https://github.com/mandarvyas/tech-practice-hub/tree/main/React-Native/Features/Animation",
-    duration: "1 week",
-    teamSize: 1,
-  },
-  {
     id: "wander-travel",
     title: "WANDER - Travel Discovery Platform",
     description:
@@ -374,7 +339,6 @@ export const projects: Project[] = [
     duration: "1 week",
     teamSize: 1,
   },
-
   {
     id: "javascript-mini-projects",
     title: "JavaScript Mini Projects Collection",

@@ -287,8 +287,8 @@ export const projects: Project[] = [
       "🔧 TypeScript for type-safe development",
     ],
     status: "Completed",
-    demoVideo: "/tech-practice-hub/images/MovieBuzz.gif",
-    liveDemo: "expo.dev/accounts/mandarvyas/projects/movie-buzz-app",
+    demoVideo: "/images/MovieBuzz.gif",
+    liveDemo: "https://expo.dev/accounts/mandarvyas/projects/movie-buzz-app",
     githubRepo:
       "https://github.com/mandarvyas/tech-practice-hub/tree/main/React-Native/movieBuzz",
     downloadLinks: {
@@ -330,10 +330,9 @@ export const projects: Project[] = [
       "✨ Smooth hover & transition animations",
       "🌍 Interactive destination showcase",
       "📱 Fully responsive layout",
-      "🎯 Netflix-inspired UI/UX",
     ],
     status: "Completed",
-    demoVideo: "/tech-practice-hub/images/wander-react.gif",
+    demoVideo: "/images/wander-react.gif",
     githubRepo:
       "https://github.com/mandarvyas/tech-practice-hub/tree/main/React/login-react/login",
     duration: "1 week",

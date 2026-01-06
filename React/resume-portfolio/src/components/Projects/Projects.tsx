@@ -149,14 +149,21 @@ const Projects: React.FC = () => {
                               <div className="demo-container">
                                 {project.demoVideo.includes(".gif") ? (
                                   <img
-                                    src={project.demoVideo}
+                                    src={`${process.env.PUBLIC_URL}${project.demoVideo}`}
                                     alt="App Demo GIF"
                                     className="demo-gif"
-                                    onError={(e) =>
-                                      console.error("GIF loading error:", e)
-                                    }
+                                    onError={(e) => {
+                                      console.error("GIF loading error:", e);
+                                      console.error(
+                                        "Attempted path:",
+                                        `${process.env.PUBLIC_URL}${project.demoVideo}`
+                                      );
+                                    }}
                                     onLoad={() =>
-                                      console.log("GIF loaded successfully")
+                                      console.log(
+                                        "GIF loaded successfully:",
+                                        `${process.env.PUBLIC_URL}${project.demoVideo}`
+                                      )
                                     }
                                   />
                                 ) : project.demoVideo.includes("youtube.com") ||
@@ -238,6 +245,32 @@ const Projects: React.FC = () => {
                           </div>
                         </div>
                       </div>
+                    </div>
+
+                    {/* Project Actions */}
+                    <div className="project-actions">
+                      {project.githubRepo && (
+                        <a
+                          href={project.githubRepo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="action-btn secondary"
+                        >
+                          <span className="btn-icon">💻</span>
+                          View Code
+                        </a>
+                      )}
+                      {project.liveDemo && (
+                        <a
+                          href={project.liveDemo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="action-btn primary"
+                        >
+                          <span className="btn-icon">🚀</span>
+                          Live Demo
+                        </a>
+                      )}
                     </div>
                   </div>
                 </motion.div>

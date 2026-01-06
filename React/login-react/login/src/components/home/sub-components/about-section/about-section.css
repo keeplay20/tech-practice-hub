@@ -42,10 +42,6 @@ img {
   height: 20px;
 }
 
-.about-right-section {
-  width: 30%;
-}
-
 .about-left-section-content-item {
   padding-top: 60px;
   display: flex;
@@ -76,36 +72,31 @@ span {
 .about-right-section {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 10px;
+  justify-content: center;
   gap: 10px;
+  padding: 50px;
 }
 
 .about-right-section-item {
   display: flex;
+  padding-left: 10px;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  background-color: #ff6f61;
+  color: #f3eeee;
   gap: 10px;
-  padding: 10px;
-  background-color: #f0f0f0;
   border-radius: 10px;
-  object-fit: contain;
-  object-position: center;
-  object-fit: cover;
-  object-position: center;
 }
 
 .about-right-section-item-content {
   display: flex;
   flex-direction: column;
-  gap: 10px;
   padding: 10px;
 }
 
 .about-right-section-item-image {
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 50px;
   object-fit: contain;
   object-position: center;
   object-fit: cover;

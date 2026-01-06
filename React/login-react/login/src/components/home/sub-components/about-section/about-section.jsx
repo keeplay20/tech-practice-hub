@@ -58,14 +58,31 @@ export const AboutSection = () => {
             </span>
           </div>
         </div>
-        <img src={"src/assets/calendar.png"} alt="about-section" />
-        <h3>All in One Booking</h3>
-        <span>Book flights, hotels, tours, and more in one easy step.</span>
-        {/* <img src={"src/assets/musical-note.png"} alt="about-section" />
-        <h3>24/7 Support</h3>
-        <span>
-          Our dedicated support team is here to help you every step of the way.
-        </span> */}
+        <div className="about-right-section-item">
+          <img
+            src={"src/assets/calendar.png"}
+            alt="about-section"
+            className="about-right-section-item-image"
+          />
+          <div className="about-right-section-item-content">
+            <h3>All in One Booking</h3>
+            <span>Book flights, hotels, tours, and more in one easy step.</span>
+          </div>
+        </div>
+        <div className="about-right-section-item">
+          <img
+            src={"src/assets/musical-note.png"}
+            alt="about-section"
+            className="about-right-section-item-image"
+          />
+          <div className="about-right-section-item-content">
+            <h3>24/7 Support</h3>
+            <span>
+              Our dedicated support team is here to help you every step of the
+              way.
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   );

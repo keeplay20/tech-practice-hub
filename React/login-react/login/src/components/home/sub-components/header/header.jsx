@@ -4,7 +4,7 @@ import "./header.css";
 export const HomeHeader = () => {
   return (
     <header className="header-container">
-      <div className="logo">AIRCNC</div>
+      <div className="logo">GHUMO-NOW</div>
       <ul className="nav-list">
         <li className="nav-item">Home</li>
         <li className="nav-item">Destinations</li>

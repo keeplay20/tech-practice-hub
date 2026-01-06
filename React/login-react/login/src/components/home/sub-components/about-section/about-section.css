@@ -1,13 +1,23 @@
 .about-section {
   display: flex;
   flex-direction: row;
-  margin: 10px;
-  height: 400px;
+  margin: 40px;
+  min-height: 450px;
+  gap: 40px;
 }
 
 .about-left-section {
-  width: 70%;
-  padding: 40px;
+  width: 60%;
+  padding: 50px;
+  background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+  border-radius: 30px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-left-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
 }
 
 .about-left-section-content {
@@ -15,48 +25,56 @@
   flex-direction: column;
 }
 
-h3 {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 10px;
+.about-left-section-content h3 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+  line-height: 1.4;
 }
 
-span {
+.about-left-section-content span {
   font-size: 16px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  color: #555;
+  line-height: 1.8;
 }
 
-ul {
+.about-left-section-content ul {
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 15px;
+  padding: 0;
+  margin-top: 10px;
 }
 
-ul li {
+.about-left-section-content ul li {
   list-style: none;
+  background: white;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-img {
+.about-left-section-content ul li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+}
+
+.about-left-section-content ul li img {
   object-fit: contain;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
 }
 
 .about-left-section-content-item {
-  padding-top: 60px;
+  padding-top: 50px;
   display: flex;
   flex-direction: row;
-}
-
-h6 {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-span {
-  font-size: 16px;
-  margin-bottom: 10px;
+  justify-content: space-between;
+  gap: 20px;
 }
 
 .about-left-section-content-item-item {
@@ -64,40 +82,94 @@ span {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 10px;
+  gap: 8px;
+  padding: 25px;
+  background: white;
+  border-radius: 20px;
+  flex: 1;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.about-left-section-content-item-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+}
+
+.about-left-section-content-item-item img {
+  width: 36px;
+  height: 36px;
+}
+
+.about-left-section-content-item-item h6 {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 5px 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.about-left-section-content-item-item span {
+  font-size: 13px;
+  margin: 0;
+  color: #666;
+  text-align: center;
+  line-height: 1.4;
 }
 
 .about-right-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 10px;
-  padding: 50px;
+  gap: 20px;
+  flex: 1;
 }
 
 .about-right-section-item {
   display: flex;
-  padding-left: 10px;
+  padding: 25px;
   flex-direction: row;
   align-items: center;
-  background-color: #8d9daf;
-  color: #f3eeee;
-  gap: 10px;
-  border-radius: 10px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  gap: 20px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.about-right-section-item:hover {
+  transform: translateX(10px);
+  box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
 }
 
 .about-right-section-item-content {
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  gap: 8px;
+}
+
+.about-right-section-item-content h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  color: white;
+}
+
+.about-right-section-item-content span {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin: 0;
 }
 
 .about-right-section-item-image {
   width: 50px;
   height: 50px;
   object-fit: contain;
-  object-position: center;
-  object-fit: cover;
-  object-position: center;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
 }

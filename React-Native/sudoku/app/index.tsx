@@ -1,21 +1,12 @@
 import { useRouter } from "expo-router";
-import { View, Text, Pressable, StyleSheet, Alert } from "react-native";
+import { View, Text, Pressable, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { clearCurrentGame, loadSavedGames } from "./utils/storage";
-import { useEffect } from "react";
 
 export default function Index() {
   const router = useRouter();
-  useEffect(() => {
-    // Optional: Check for saved games on mount
-    loadSavedGames();
-  }, []);
-
   const startNewGame = () => {
-    clearCurrentGame(); // Clear any existing game
     router.push("/game");
   };
-
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>

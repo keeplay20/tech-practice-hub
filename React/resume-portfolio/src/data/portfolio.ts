@@ -298,6 +298,50 @@ export const projects: Project[] = [
     teamSize: 1,
   },
   {
+    id: "sudoku",
+    title: "Sudoku - Create & Solve Puzzle Game",
+    description:
+      "Interactive Sudoku game built with React Native and Expo where users create their own puzzles and solve them. Features a clean UI with customizable gameplay.",
+    longDescription: [
+      "Sudoku is an innovative puzzle game that flips the traditional approach - instead of solving pre-generated puzzles, users create their own puzzles and then solve them.",
+      "Built with React Native and TypeScript using Expo Router, the app features a clean, intuitive interface with a 9×9 grid that supports both setup and play modes.",
+      "The application demonstrates modern React Native development with proper state management, TypeScript interfaces, and a polished user experience with visual feedback for frozen puzzle cells.",
+    ],
+    category: "Mobile App",
+    technologies: [
+      "React Native",
+      "Expo Router",
+      "React Hooks",
+      "Custom Components",
+    ],
+    features: [
+      "Create Custom Sudoku Puzzles",
+      "Freeze Puzzle Numbers",
+      "Interactive 9*9 Grid",
+      "Visual Cell States (Frozen/Editable)",
+      "Clear Solution Feature",
+      "New Game Reset",
+    ],
+    highlights: [
+      "🎮 Unique create-your-own-puzzle gameplay",
+      "🎨 Clean, intuitive UI with visual feedback",
+      "📱 Responsive grid layout for all screen sizes",
+      "🔢 Input validation (1-9 only)",
+      "🎯 TypeScript for type-safe development",
+      "⚡ Smooth state management with React Hooks",
+    ],
+    status: "Completed",
+    demoVideo: "/images/CustomSudoku.gif",
+    liveDemo: "https://expo.dev/accounts/mandarvyas/projects/sudoku",
+    githubRepo:
+      "https://github.com/mandarvyas/tech-practice-hub/tree/main/React-Native/sudoku",
+    downloadLinks: {
+      apk: "https://expo.dev/artifacts/eas/gD8i9Kn22PY8yrTu69Jd1g.apk",
+    },
+    duration: "3 days",
+    teamSize: 1,
+  },
+  {
     id: "wander-travel",
     title: "WANDER - Travel Discovery Platform",
     description:

@@ -212,7 +212,7 @@ const styles = StyleSheet.create({
     borderColor: "#ccc",
   },
   frozenCell: {
-    backgroundColor: "#e3f2fd",
+    backgroundColor: "#ffebee",
   },
   thickBottomBorder: {
     borderBottomWidth: 2,
@@ -232,7 +232,7 @@ const styles = StyleSheet.create({
     color: "#333",
   },
   frozenText: {
-    color: "#1565c0",
+    color: "#c62828",
     fontWeight: "bold",
   },
   buttonsContainer: {

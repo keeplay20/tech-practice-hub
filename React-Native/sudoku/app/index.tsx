@@ -11,7 +11,6 @@ export default function Index() {
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
         <Text style={styles.title}>Sudoku</Text>
-        <Text style={styles.subtitle}>Classic Puzzle Game</Text>
 
         <View style={styles.buttonsContainer}>
           <Pressable
@@ -22,25 +21,8 @@ export default function Index() {
             ]}
             onPress={startNewGame}
           >
-            <Text style={styles.buttonText}>New Game</Text>
+            <Text style={styles.buttonText}>PLAY</Text>
           </Pressable>
-        </View>
-
-        <View style={styles.infoContainer}>
-          <Text style={styles.infoTitle}>How to Play:</Text>
-          <Text style={styles.infoText}>
-            • Fill the 9×9 grid with numbers 1-9
-          </Text>
-          <Text style={styles.infoText}>
-            • Each row must contain all digits
-          </Text>
-          <Text style={styles.infoText}>
-            • Each column must contain all digits
-          </Text>
-          <Text style={styles.infoText}>
-            • Each 3×3 box must contain all digits
-          </Text>
-          <Text style={styles.infoText}>• Pinch to zoom the grid</Text>
         </View>
       </View>
     </SafeAreaView>
@@ -50,7 +32,7 @@ export default function Index() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#f5f5f5",
   },
   content: {
     flex: 1,
@@ -63,11 +45,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#2196f3",
     marginBottom: 10,
-  },
-  subtitle: {
-    fontSize: 18,
-    color: "#666",
-    marginBottom: 50,
   },
   buttonsContainer: {
     width: "100%",
@@ -99,24 +76,5 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 18,
     fontWeight: "bold",
-  },
-  infoContainer: {
-    marginTop: 50,
-    padding: 20,
-    backgroundColor: "#f5f5f5",
-    borderRadius: 12,
-    width: "100%",
-    maxWidth: 300,
-  },
-  infoTitle: {
-    fontSize: 18,
-    fontWeight: "bold",
-    color: "#333",
-    marginBottom: 10,
-  },
-  infoText: {
-    fontSize: 14,
-    color: "#666",
-    marginBottom: 5,
   },
 });

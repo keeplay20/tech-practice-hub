@@ -13,6 +13,7 @@
 |------------------|----------------------------------------------------------------|
 | `CSS/`           | Mini projects using pure CSS (animations, layouts, themes).   |
 | `JavaScript/`    | Core JS concepts, small apps, and coding interviews.          |
+| `React/`         | Web development with React and components.                    |
 | `React-Native/`  | Mobile app development with React Native and components.      |
 | `DSA/`           | Data structures & algorithms by topic with code & theory.     |
 
@@ -49,6 +50,7 @@
 ---
 
 > 🧠 *This repo is built with discipline, passion, and a love for tech. Contributions, feedback, and forks are welcome!*
+
 
 
 

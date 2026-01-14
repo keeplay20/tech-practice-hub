@@ -9,8 +9,8 @@
 
 ## 📂 Folder Structure Overview
 
-| Folder           | Description                                                    |
-|------------------|----------------------------------------------------------------|
+| Folder           | Description                                                   |
+|------------------|---------------------------------------------------------------|
 | `CSS/`           | Mini projects using pure CSS (animations, layouts, themes).   |
 | `JavaScript/`    | Core JS concepts, small apps, and coding interviews.          |
 | `React/`         | Web development with React and components.                    |
@@ -50,6 +50,7 @@
 ---
 
 > 🧠 *This repo is built with discipline, passion, and a love for tech. Contributions, feedback, and forks are welcome!*
+
 
 
 

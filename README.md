@@ -2,7 +2,7 @@
 <h1 align="center">📚 Tech Practice Hub</h1>
 
 <p align="center">
-  <b>🚀 A personal knowledge vault & practice lab for mastering frontend, DSA & more.</b>
+  <b>🚀 A personal knowledge vault & practice lab for mastering frontend and DSA.</b>
 </p>
 
 ---

@@ -22,7 +22,7 @@
 ## 🛠️ Tools & Technologies
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=html,css,js,react,react-native,git&theme=dark" />
+  <img src="https://skillicons.dev/icons?i=html,css,js,react,git&theme=dark" />
 </p>
 
 ---
@@ -50,6 +50,7 @@
 ---
 
 > 🧠 *This repo is built with discipline, passion, and a love for tech. Contributions, feedback, and forks are welcome!*
+
 
 
 

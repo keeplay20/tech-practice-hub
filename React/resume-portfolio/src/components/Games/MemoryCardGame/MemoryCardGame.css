@@ -103,27 +103,15 @@
 
 .memory-card-game__card {
   aspect-ratio: 1;
-  background: var(--surface-elevated);
+  background: transparent;
   border-radius: 12px;
   cursor: pointer;
   position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.6s;
-  border: 2px solid var(--border-color);
+  perspective: 1000px;
 }
 
-.memory-card-game__card:hover:not(.memory-card-game__card--matched):not(.memory-card-game__card--flipped) {
+.memory-card-game__card:hover:not(.memory-card-game__card--matched):not(.memory-card-game__card--flipped) .memory-card-game__card-inner {
   border-color: var(--primary-color);
-}
-
-.memory-card-game__card--flipped {
-  transform: rotateY(180deg);
-}
-
-.memory-card-game__card--matched {
-  background: linear-gradient(145deg, rgba(52, 211, 153, 0.2) 0%, rgba(16, 185, 129, 0.2) 100%);
-  border-color: rgba(52, 211, 153, 0.5);
-  cursor: default;
 }
 
 .memory-card-game__card-inner {
@@ -131,6 +119,19 @@
   height: 100%;
   position: relative;
   transform-style: preserve-3d;
+  transition: transform 0.6s;
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+}
+
+.memory-card-game__card--flipped .memory-card-game__card-inner {
+  transform: rotateY(180deg);
+}
+
+.memory-card-game__card--matched .memory-card-game__card-inner {
+  background: linear-gradient(145deg, rgba(52, 211, 153, 0.2) 0%, rgba(16, 185, 129, 0.2) 100%);
+  border-color: rgba(52, 211, 153, 0.5);
+  cursor: default;
 }
 
 .memory-card-game__card-front,

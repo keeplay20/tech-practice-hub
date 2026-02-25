@@ -99,6 +99,40 @@ function App() {
   const [flippedCards, setFlippedCards] = useState([]);
   const [isComparing, setIsComparing] = useState(false);
   const [moves, setMoves] = useState(0);
+  const [hasWon, setHasWon] = useState(false);
+  const [timer, setTimer] = useState(0);
+  const [isGameActive, setIsGameActive] = useState(false);
+  const [bestScore, setBestScore] = useState(() => {
+    const saved = localStorage.getItem('memoryGameBestScore');
+    return saved ? JSON.parse(saved) : null;
+  });
+
+  // Timer effect
+  useEffect(() => {
+    let interval;
+    if (isGameActive && !hasWon) {
+      interval = setInterval(() => {
+        setTimer((prev) => prev + 1);
+      }, 1000);
+    }
+    return () => clearInterval(interval);
+  }, [isGameActive, hasWon]);
+
+  // Check for win condition
+  useEffect(() => {
+    const allMatched = cards.every(card => card.isMatched);
+    if (allMatched && moves > 0) {
+      setHasWon(true);
+      setIsGameActive(false);
+      
+      // Update best score if this is better
+      if (!bestScore || moves < bestScore.moves || (moves === bestScore.moves && timer < bestScore.time)) {
+        const newBestScore = { moves, time: timer };
+        setBestScore(newBestScore);
+        localStorage.setItem('memoryGameBestScore', JSON.stringify(newBestScore));
+      }
+    }
+  }, [cards, moves, timer, bestScore, hasWon]);
 
   useEffect(() => {
     if(flippedCards.length === 2) {
@@ -129,6 +163,9 @@ function App() {
   }, [flippedCards, cards])
 
   const handleCardClick = (cardId) => {
+    if (!isGameActive) {
+      setIsGameActive(true);
+    }
     if(isComparing) return;
     if(flippedCards.includes(cardId)) return;
     if(flippedCards.length === 2) return;
@@ -140,13 +177,35 @@ function App() {
     setFlippedCards([]);
     setIsComparing(false);
     setMoves(0);
+    setHasWon(false);
+    setTimer(0);
+    setIsGameActive(false);
+  }
+
+  const formatTime = (seconds) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
   }
   
   return (
     <div className='app-container'>
       <h1>🎮 Memory Card Game 🎮</h1>
       <div className='game-stats'>
-        <div className='moves'>Moves: {moves}</div>
+        <div className='stat-item'>
+          <span className='stat-label'>Time:</span>
+          <span className='stat-value'>{formatTime(timer)}</span>
+        </div>
+        <div className='stat-item'>
+          <span className='stat-label'>Moves:</span>
+          <span className='stat-value'>{moves}</span>
+        </div>
+        {bestScore && (
+          <div className='stat-item best-score'>
+            <span className='stat-label'>Best:</span>
+            <span className='stat-value'>{bestScore.moves} moves / {formatTime(bestScore.time)}</span>
+          </div>
+        )}
         <button className='new-game-btn' onClick={handleNewGame}>New Game</button>
       </div>
       <div className='card-container'>
@@ -168,6 +227,32 @@ function App() {
           )
         })}
       </div>
+
+      {hasWon && (
+        <div className='win-modal-overlay' onClick={() => setHasWon(false)}>
+          <div className='win-modal' onClick={(e) => e.stopPropagation()}>
+            <h2>🎉 Congratulations! 🎉</h2>
+            <p className='win-message'>You won the game!</p>
+            <div className='win-stats'>
+              <div className='win-stat'>
+                <span className='win-stat-label'>Time:</span>
+                <span className='win-stat-value'>{formatTime(timer)}</span>
+              </div>
+              <div className='win-stat'>
+                <span className='win-stat-label'>Moves:</span>
+                <span className='win-stat-value'>{moves}</span>
+              </div>
+            </div>
+            {bestScore && (moves === bestScore.moves && timer === bestScore.time) && (
+              <p className='new-record'>🏆 New Best Score! 🏆</p>
+            )}
+            <button className='play-again-btn' onClick={() => {
+              setHasWon(false);
+              handleNewGame();
+            }}>Play Again</button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

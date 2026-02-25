@@ -23,6 +23,7 @@ A modern, responsive portfolio website built with React and TypeScript, featurin
    - Rock Paper Scissors
    - Snake Game
    - Typing Speed Test
+   - Memory Card Game
 
 ## Technologies Used
 
@@ -86,7 +87,8 @@ src/
 │       ├── TicTacToe/
 │       ├── RockPaperScissors/
 │       ├── Snake/
-│       └── TypingTest/
+│       ├── TypingTest/
+│       └── MemoryCardGame/
 ├── data/
 │   └── portfolio.ts         # Portfolio content
 ├── types/

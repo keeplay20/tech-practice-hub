@@ -4,6 +4,7 @@ import TicTacToe from "../Games/TicTacToe/TicTacToe";
 import RockPaperScissors from "../Games/RockPaperScissors/RockPaperScissors";
 import Snake from "../Games/Snake/Snake";
 import TypingTest from "../Games/TypingTest/TypingTest";
+import MemoryCardGame from "../Games/MemoryCardGame/MemoryCardGame";
 import "./GameCenter.css";
 
 interface GameCenterProps {
@@ -41,6 +42,12 @@ const games: Game[] = [
     title: "Typing Speed Test",
     icon: "⌨️",
     description: "Test your coding typing speed",
+  },
+  {
+    id: "memory",
+    title: "Memory Card Game",
+    icon: "🎴",
+    description: "Match all pairs of cards",
   },
 ];
 
@@ -84,6 +91,8 @@ const GameCenter: React.FC<GameCenterProps> = ({ onBack }) => {
         return <Snake />;
       case "typing":
         return <TypingTest />;
+      case "memory":
+        return <MemoryCardGame />;
       default:
         return null;
     }

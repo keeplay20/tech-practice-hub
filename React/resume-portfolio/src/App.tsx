@@ -3,12 +3,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import "./App.css";
 import Header from "./components/Header/Header";
 import Hero from "./components/Hero/Hero";
-import About from "./components/About/About";
-import Experience from "./components/Experience/Experience";
+import StoryJourney from "./components/StoryJourney/StoryJourney";
 import Skills from "./components/Skills/Skills";
 import GameCenter from "./components/GameCenter/GameCenter";
 import ProjectsPage from "./components/ProjectsPage/ProjectsPage";
-import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 
 type Page = "portfolio" | "games" | "projects";
@@ -27,16 +25,14 @@ function App() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <Header 
-              onGameCenterClick={() => setCurrentPage("games")}
-              onProjectsClick={() => setCurrentPage("projects")}
-            />
+            <Header />
             <main>
-              <Hero />
-              <About />
-              <Experience />
+              <Hero
+                onProjectsClick={() => setCurrentPage("projects")}
+                onGamesClick={() => setCurrentPage("games")}
+              />
+              <StoryJourney />
               <Skills />
-              <Contact />
             </main>
             <Footer />
           </motion.div>

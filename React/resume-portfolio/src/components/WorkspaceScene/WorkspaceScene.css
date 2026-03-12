@@ -1,0 +1,436 @@
+.workspace-scene {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* Progress Tracker */
+.progress-tracker {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 1rem 1.5rem;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.progress-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.progress-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.progress-bar {
+  width: 150px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4ade80, #22c55e);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
+}
+
+.progress-text {
+  font-size: 0.875rem;
+  color: white;
+  font-weight: 600;
+}
+
+.score-badge {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.875rem;
+  box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4);
+}
+
+/* Workspace Container */
+.workspace-container {
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+  z-index: 10;
+}
+
+.workspace-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.workspace-title h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: white;
+  margin: 0 0 1rem 0;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.workspace-subtitle {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Desk Grid */
+.desk-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  perspective: 1000px;
+}
+
+/* Workspace Items */
+.workspace-item {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+  padding: 2.5rem 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+  overflow: hidden;
+}
+
+.workspace-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.workspace-item:hover::before {
+  opacity: 1;
+}
+
+.workspace-item:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+.item-icon {
+  font-size: 4rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.2));
+}
+
+.item-content {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.item-content h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 0.5rem 0;
+}
+
+.item-content p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+/* Item Glow Effect */
+.item-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.workspace-item:hover .item-glow {
+  opacity: 1;
+}
+
+/* Discovered Badge */
+.discovered-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(135deg, #4ade80, #22c55e);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 4px 15px rgba(74, 222, 128, 0.4);
+  z-index: 10;
+}
+
+/* Specific Item Colors */
+.computer:hover {
+  border-color: #60a5fa;
+  box-shadow: 0 20px 60px rgba(96, 165, 250, 0.4),
+    0 0 30px rgba(96, 165, 250, 0.3);
+}
+
+.books:hover {
+  border-color: #a78bfa;
+  box-shadow: 0 20px 60px rgba(167, 139, 250, 0.4),
+    0 0 30px rgba(167, 139, 250, 0.3);
+}
+
+.coffee:hover {
+  border-color: #fbbf24;
+  box-shadow: 0 20px 60px rgba(251, 191, 36, 0.4),
+    0 0 30px rgba(251, 191, 36, 0.3);
+}
+
+.phone:hover {
+  border-color: #34d399;
+  box-shadow: 0 20px 60px rgba(52, 211, 153, 0.4),
+    0 0 30px rgba(52, 211, 153, 0.3);
+}
+
+.trophy:hover {
+  border-color: #f472b6;
+  box-shadow: 0 20px 60px rgba(244, 114, 182, 0.4),
+    0 0 30px rgba(244, 114, 182, 0.3);
+}
+
+/* Achievement Popup */
+.achievement-popup {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: white;
+  padding: 1.5rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(251, 191, 36, 0.5);
+  z-index: 1000;
+  max-width: 90%;
+}
+
+.achievement-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.achievement-icon {
+  font-size: 3rem;
+  animation: bounce 1s ease infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.achievement-content h4 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.achievement-content p {
+  margin: 0;
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
+/* Fun Fact Popup */
+.fun-fact-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 2.5rem 3rem;
+  border-radius: 30px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  text-align: center;
+  max-width: 90%;
+  border: 3px solid rgba(255, 255, 255, 0.5);
+}
+
+.fun-fact-emoji {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 1rem;
+  animation: rotate 2s ease infinite;
+}
+
+@keyframes rotate {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
+}
+
+.fun-fact-popup p {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Particles */
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .workspace-title h1 {
+    font-size: 2rem;
+  }
+
+  .workspace-subtitle {
+    font-size: 1rem;
+  }
+
+  .desk-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .workspace-item {
+    padding: 2rem 1.5rem;
+  }
+
+  .item-icon {
+    font-size: 3rem;
+  }
+
+  .item-content h3 {
+    font-size: 1.25rem;
+  }
+
+  .progress-tracker {
+    top: 10px;
+    right: 10px;
+    padding: 0.75rem 1rem;
+    font-size: 0.75rem;
+  }
+
+  .progress-bar {
+    width: 100px;
+  }
+
+  .fun-fact-popup {
+    padding: 2rem;
+  }
+
+  .fun-fact-emoji {
+    font-size: 3rem;
+  }
+
+  .fun-fact-popup p {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .workspace-scene {
+    padding: 1rem;
+  }
+
+  .workspace-title h1 {
+    font-size: 1.5rem;
+  }
+
+  .workspace-subtitle {
+    font-size: 0.875rem;
+  }
+
+  .item-icon {
+    font-size: 2.5rem;
+  }
+
+  .achievement-popup {
+    padding: 1rem 1.5rem;
+    font-size: 0.875rem;
+  }
+
+  .achievement-icon {
+    font-size: 2rem;
+  }
+}

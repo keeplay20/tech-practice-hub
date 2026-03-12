@@ -4,20 +4,19 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(10, 10, 10, 0.8);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid transparent;
-  transition: all 0.3s ease;
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .header--scrolled {
-  background: rgba(10, 10, 10, 0.95);
-  border-bottom-color: var(--border-color);
-  box-shadow: var(--shadow-lg);
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .header__container {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 1rem 2rem;
   display: flex;
@@ -25,162 +24,76 @@
   justify-content: space-between;
 }
 
-/* Logo */
+/* ---- Logo ---- */
 .header__logo {
   cursor: pointer;
   user-select: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .header__logo-text {
-  font-size: 1.5rem;
-  font-weight: 800;
   font-family: var(--font-family-mono);
-  background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #fff 0%, rgba(99, 102, 241, 0.85) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 3rem;
-  height: 3rem;
-  border: 2px solid var(--accent-color);
-  border-radius: 50%;
-  transition: all 0.3s ease;
+  transition: opacity 0.2s ease;
 }
 
 .header__logo:hover .header__logo-text {
-  box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+  opacity: 0.8;
 }
 
-/* Desktop Navigation */
+/* ---- Desktop Nav Pill ---- */
 .header__nav {
   display: none;
 }
 
-.header__nav-list {
+.header__nav-pill {
   display: flex;
   align-items: center;
-  gap: 2rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.header__nav-item {
-  position: relative;
+  gap: 0.15rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  padding: 0.3rem 0.4rem;
 }
 
 .header__nav-link {
   color: var(--text-secondary);
-  text-decoration: none;
+  font-family: var(--font-family-primary);
+  font-size: 0.875rem;
   font-weight: 500;
-  transition: color 0.3s ease;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
   background: none;
   border: none;
   cursor: pointer;
-  font-family: var(--font-family-primary);
-  font-size: 0.9rem;
-  padding: 0.5rem 0;
-  position: relative;
-}
-
-.header__nav-link::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--accent-color);
-  transition: width 0.3s ease;
+  transition: color 0.2s ease, background 0.2s ease;
+  white-space: nowrap;
 }
 
 .header__nav-link:hover {
-  color: var(--accent-color);
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.07);
 }
 
 .header__nav-link:focus {
+  outline: none;
   color: var(--text-primary);
+  background: rgba(99, 102, 241, 0.12);
 }
 
-.header__nav-link:focus::after {
-  width: 100%;
-}
-
-/* Actions */
+/* ---- Actions / Mobile Toggle ---- */
 .header__actions {
   display: flex;
   align-items: center;
-  gap: 1rem;
 }
 
-.header__projects-btn,
-.header__game-btn {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  min-width: 100px;
-  justify-content: center;
-  padding: 0.75rem 1rem;
-  position: relative;
-  background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
-  border: 1px solid var(--accent-color);
-  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
-  transition: all 0.3s ease;
-  animation: subtlePulse 3s ease-in-out infinite;
-}
-
-.header__projects-btn:hover,
-.header__game-btn:hover {
-  background: linear-gradient(135deg, var(--accent-hover), var(--accent-color));
-  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
-  transform: translateY(-2px);
-}
-
-.header__projects-btn:active,
-.header__game-btn:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 10px rgba(99, 102, 241, 0.3);
-}
-
-.header__projects-icon,
-.header__game-icon {
-  font-size: 1.1rem;
-}
-
-.header__projects-text,
-.header__game-text {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: white;
-}
-
-.header__projects-btn::before,
-.header__game-btn::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    135deg,
-    transparent,
-    rgba(255, 255, 255, 0.1),
-    transparent
-  );
-  border-radius: inherit;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.header__projects-btn:hover::before,
-.header__game-btn:hover::before {
-  opacity: 1;
-}
-
-/* Mobile Menu Toggle */
 .header__mobile-toggle {
   display: flex;
   flex-direction: column;
@@ -215,20 +128,21 @@
   transform: rotate(-45deg) translate(3px, -3px);
 }
 
-/* Mobile Menu */
+/* ---- Mobile Menu ---- */
 .header__mobile-menu {
   position: absolute;
   top: 100%;
   left: 0;
   right: 0;
-  background: rgba(26, 26, 26, 0.98);
+  background: rgba(12, 12, 12, 0.97);
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border-color);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   overflow: hidden;
 }
 
 .header__mobile-nav {
-  padding: 1rem 2rem 2rem;
+  padding: 1rem 2rem 1.5rem;
 }
 
 .header__mobile-nav-list {
@@ -238,68 +152,44 @@
 }
 
 .header__mobile-nav-item {
-  margin-bottom: 1rem;
+  margin-bottom: 0.25rem;
 }
 
 .header__mobile-nav-link {
   display: block;
   color: var(--text-secondary);
-  text-decoration: none;
   font-weight: 500;
-  font-size: 1.1rem;
-  padding: 0.75rem 0;
+  font-size: 1rem;
+  padding: 0.65rem 0.75rem;
   background: none;
   border: none;
   cursor: pointer;
   font-family: var(--font-family-primary);
   width: 100%;
   text-align: left;
-  transition: color 0.3s ease;
+  border-radius: var(--radius-md);
+  transition: color 0.2s ease, background 0.2s ease;
 }
 
 .header__mobile-nav-link:hover {
-  color: var(--accent-color);
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
 }
 
-.header__mobile-projects-btn,
-.header__mobile-game-btn {
-  background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
-  color: white !important;
-  border: 1px solid var(--accent-color);
-  border-radius: 8px;
-  padding: 1rem;
-  margin-top: 1rem;
-  font-weight: 600;
-  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
-  transition: all 0.3s ease;
-  animation: subtlePulse 3s ease-in-out infinite;
+.header__mobile-nav-link:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
 }
 
-.header__mobile-projects-btn:hover,
-.header__mobile-game-btn:hover {
-  background: linear-gradient(
-    135deg,
-    var(--accent-hover),
-    var(--accent-color)
-  ) !important;
-  color: white !important;
-  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
-  transform: translateY(-2px);
+.header__mobile-toggle:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
 }
 
-/* Responsive Design */
+/* ---- Responsive ---- */
 @media (min-width: 768px) {
-  .header__container {
-    padding: 1rem 3rem;
-  }
-
   .header__nav {
     display: block;
-  }
-
-  .header__projects-btn,
-  .header__game-btn {
-    display: flex;
   }
 
   .header__mobile-toggle {
@@ -312,49 +202,8 @@
 }
 
 @media (min-width: 1024px) {
-  .header__nav-list {
-    gap: 2.5rem;
-  }
-
   .header__nav-link {
-    font-size: 1rem;
-  }
-}
-
-/* Focus styles for accessibility */
-.header__nav-link:focus {
-  outline: none;
-}
-
-.header__mobile-nav-link:focus,
-.header__mobile-toggle:focus {
-  outline: 2px solid var(--accent-color);
-  outline-offset: 2px;
-}
-
-/* Animation for mobile menu items */
-.header__mobile-menu--open .header__mobile-nav-item {
-  animation: slideInFromLeft 0.3s ease forwards;
-}
-
-@keyframes slideInFromLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Subtle pulse animation for buttons */
-@keyframes subtlePulse {
-  0%,
-  100% {
-    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
-  }
-  50% {
-    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+    font-size: 0.9rem;
+    padding: 0.45rem 1rem;
   }
 }

@@ -40,7 +40,7 @@ jobs:
 
       - name: Install dependencies
         working-directory: React/resume-portfolio
-        run: npm ci
+        run: npm ci --legacy-peer-deps
 
       - name: Build portfolio
         working-directory: React/resume-portfolio

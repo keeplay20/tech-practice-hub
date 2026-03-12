@@ -9,9 +9,9 @@ import {
 
 export const personalInfo: PersonalInfo = {
   name: "Mandar Vyas",
-  title: "Software Development Engineer",
+  title: "Senior Frontend Engineer",
   summary:
-    "Passionate developer with 10+ years of experience building scalable web and mobile applications. Currently driving innovation at Dream11 with React Native and modern web technologies.",
+    "10+ years building React & React Native apps for millions. Currently at Dream11.",
   yearsOfExperience: 10,
   location: "India",
   email: "mandar.vyas20@gmail.com",
@@ -92,7 +92,7 @@ export const experiences: Experience[] = [
   {
     id: "freelancer",
     company: "Freelancer",
-    position: "Full Stack Developer",
+    position: "Frontend Engineer",
     duration: "2015 - 2016",
     location: "Remote",
     description: [

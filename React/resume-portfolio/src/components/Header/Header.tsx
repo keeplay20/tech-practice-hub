@@ -2,12 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import "./Header.css";
 
-interface HeaderProps {
-  onGameCenterClick: () => void;
-  onProjectsClick: () => void;
-}
-
-const Header: React.FC<HeaderProps> = ({ onGameCenterClick, onProjectsClick }) => {
+const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -15,7 +10,6 @@ const Header: React.FC<HeaderProps> = ({ onGameCenterClick, onProjectsClick }) =
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -30,7 +24,6 @@ const Header: React.FC<HeaderProps> = ({ onGameCenterClick, onProjectsClick }) =
 
   const menuItems = [
     { id: "hero", label: "Home" },
-    { id: "about", label: "About" },
     { id: "experience", label: "Experience" },
     { id: "skills", label: "Skills" },
     { id: "contact", label: "Contact" },
@@ -50,48 +43,26 @@ const Header: React.FC<HeaderProps> = ({ onGameCenterClick, onProjectsClick }) =
           whileTap={{ scale: 0.95 }}
           onClick={() => scrollToSection("hero")}
         >
-          <span className="header__logo-text">MV</span>
+          <span className="header__logo-text">mv.</span>
         </motion.div>
 
         {/* Desktop Navigation */}
         <nav className="header__nav">
-          <ul className="header__nav-list">
+          <div className="header__nav-pill">
             {menuItems.map((item) => (
-              <li key={item.id} className="header__nav-item">
-                <button
-                  className="header__nav-link"
-                  onClick={() => scrollToSection(item.id)}
-                >
-                  {item.label}
-                </button>
-              </li>
+              <button
+                key={item.id}
+                className="header__nav-link"
+                onClick={() => scrollToSection(item.id)}
+              >
+                {item.label}
+              </button>
             ))}
-          </ul>
+          </div>
         </nav>
 
-        {/* Action Buttons */}
+        {/* Mobile Menu Toggle */}
         <div className="header__actions">
-          <motion.button
-            className="btn btn-ghost header__projects-btn"
-            onClick={onProjectsClick}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span className="header__projects-icon">🚀</span>
-            <span className="header__projects-text">Projects</span>
-          </motion.button>
-          
-          <motion.button
-            className="btn btn-ghost header__game-btn"
-            onClick={onGameCenterClick}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span className="header__game-icon">🎮</span>
-            <span className="header__game-text">Games</span>
-          </motion.button>
-
-          {/* Mobile Menu Toggle */}
           <button
             className={`header__mobile-toggle ${
               isMobileMenuOpen ? "header__mobile-toggle--active" : ""
@@ -139,44 +110,6 @@ const Header: React.FC<HeaderProps> = ({ onGameCenterClick, onProjectsClick }) =
                 </button>
               </motion.li>
             ))}
-            <motion.li
-              className="header__mobile-nav-item"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{
-                opacity: isMobileMenuOpen ? 1 : 0,
-                x: isMobileMenuOpen ? 0 : -20,
-              }}
-              transition={{ delay: menuItems.length * 0.1 }}
-            >
-              <button
-                className="header__mobile-nav-link header__mobile-projects-btn"
-                onClick={() => {
-                  onProjectsClick();
-                  setIsMobileMenuOpen(false);
-                }}
-              >
-                🚀 Projects
-              </button>
-            </motion.li>
-            <motion.li
-              className="header__mobile-nav-item"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{
-                opacity: isMobileMenuOpen ? 1 : 0,
-                x: isMobileMenuOpen ? 0 : -20,
-              }}
-              transition={{ delay: (menuItems.length + 1) * 0.1 }}
-            >
-              <button
-                className="header__mobile-nav-link header__mobile-game-btn"
-                onClick={() => {
-                  onGameCenterClick();
-                  setIsMobileMenuOpen(false);
-                }}
-              >
-                🎮 Game Center
-              </button>
-            </motion.li>
           </ul>
         </nav>
       </motion.div>

@@ -1,39 +1,71 @@
 import React, { useEffect } from "react";
-import { OrbitControls, useGLTF, useTexture } from "@react-three/drei";
+import * as THREE from "three";
+import {
+  OrbitControls,
+  useGLTF,
+  useTexture,
+  useAnimations,
+} from "@react-three/drei";
+import { useThree } from "@react-three/fiber";
 
 const Dog = () => {
   const dog = useGLTF("/models/dog.drc.glb");
 
-  const { nodes } = dog;
-
-  const texture = useTexture({
-    normalMap: "/textures/dog_normals.jpg",
+  useThree(({ camera, scene, gl }) => {
+    camera.position.z = 0.55;
+    gl.toneMapping = THREE.ReinhardToneMapping;
+    gl.outputColorSpace = THREE.SRGBColorSpace;
   });
 
+  const { actions } = useAnimations(dog.animations, dog.scene);
+
   useEffect(() => {
-    const body = nodes.DOGSTUDIO_RIGDOG_BODY_msh;
+    actions["Take 001"].play();
+  }, [actions]);
 
-    if (body?.material) {
-      const normalMap = texture.normalMap.clone();
+  const [normalMap, sampleMatCap] = useTexture([
+    "/textures/dog_normals.jpg",
+    "/matcap/mat-2.png",
+  ]).map((texture) => {
+    texture.flipY = false;
+    texture.colorSpace = THREE.SRGBColorSpace;
+    return texture;
+  });
 
-      normalMap.flipY = false;
-      body.material.normalMap = texture.normalMap;
-      body.material.normalScale.set(1, 1);
-      body.material.needsUpdate = true;
+  const [branchMap, branchNormalMap] = useTexture([
+    "/textures/branches_diffuse.jpeg",
+    "/textures/branches_normals.jpeg",
+  ]).map((texture) => {
+    texture.colorSpace = THREE.SRGBColorSpace;
+    return texture;
+  });
+
+  const branchMaterial = new THREE.MeshMatcapMaterial({
+    map: branchMap,
+    normalMap: branchNormalMap,
+  });
+
+  const dogMaterial = new THREE.MeshMatcapMaterial({
+    normalMap: normalMap,
+    matcap: sampleMatCap,
+  });
+
+  dog.scene.traverse((child) => {
+    if (child.name.includes("DOG")) {
+      child.material = dogMaterial;
+    } else if (child.name.includes("BRANCH")) {
+      child.material = branchMaterial;
     }
-  }, [nodes, texture]);
+  });
 
   return (
     <>
       <primitive
         object={dog.scene}
-        position={[1.6, -4.5, 0.25]}
-        scale={8}
-        rotation={[0, Math.PI / 5, 0]}
+        position={[0.25, -0.55, 0]}
+        rotation={[0, Math.PI / 3.9, 0]}
       />
-      <ambientLight intensity={1} />
       <directionalLight position={[0, 5, 5]} intensity={10} />
-      <OrbitControls />
     </>
   );
 };

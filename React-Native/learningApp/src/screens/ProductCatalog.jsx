@@ -12,18 +12,63 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 const searchChips = ["All", "beauty", "fragrances", "furniture"];
 
+// const useDebounceQuery = (value, delay) => {
+//   const [debounceSearchText, setDebounceSearchText] = useState(value);
+
+//   useEffect(() => {
+//     const handler = setTimeout(() => {
+//       setDebounceSearchText(value);
+//     }, delay);
+
+//     return () => clearTimeout(handler);
+//   }, [value, delay]);
+
+//   return debounceSearchText;
+// };
+
+useEffect(() => {
+  const unsubscribe = toastEventEmitter.on("SHOW TOAST", (duration) => {
+    console.log("Toast event received", duration);
+  });
+
+  return unsubscribe;
+}, []);
+
 const useDebounceQuery = (value, delay) => {
-  const [debounceSearchText, setDebounceSearchText] = useState(value);
+  const [searchDebounceText, setSearchDebounceText] = useState(value);
 
   useEffect(() => {
-    const handler = setTimeout(() => {
-      setDebounceSearchText(value);
+    const timer = setTimeout(() => {
+      setSearchDebounceText(value);
     }, delay);
 
-    return () => clearTimeout(handler);
+    return () => {
+      clearTimeout(timer);
+    };
   }, [value, delay]);
 
-  return debounceSearchText;
+  return searchDebounceText;
+};
+
+const listeners = {};
+
+const toastEventEmitter = {
+  on(event, callback) {
+    if (!listeners[event]) {
+      listeners[event] = [];
+    }
+    listeners[event].push(callback);
+
+    return () => {
+      listeners[event] = listeners[event].filter((cb) => cb !== callback);
+    };
+  },
+
+  emit(event, data) {
+    if (listeners[event]) {
+      listeners[event].forEach((callback) => callback(data));
+    }
+  },
 };
 
 export const ProductCatalog = () => {
@@ -82,6 +127,10 @@ export const ProductCatalog = () => {
     fetchProductApi(searchInput, item);
   };
 
+  const showToastFn = useCallback(() => {
+    toastEventEmitter.emit("SHOW TOAST", 2000);
+  }, []);
+
   if (isLoading && productData.length === 0) {
     return (
       <SafeAreaView edges={["top"]} style={styles.container}>
@@ -106,6 +155,9 @@ export const ProductCatalog = () => {
         value={searchInput}
         onChangeText={setSearchInput}
       ></TextInput>
+      <Pressable style={styles.toastBtn} onPress={showToastFn}>
+        <Text>Show Toast</Text>
+      </Pressable>
       <View style={styles.chipsContainer}>
         {searchChips.map((item, index) => {
           const isSelected = category === item;
@@ -168,5 +220,11 @@ export const styles = StyleSheet.create({
   },
   text: {
     fontSize: 14,
+  },
+  toastBtn: {
+    padding: 10,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: "lightgrey",
   },
 });

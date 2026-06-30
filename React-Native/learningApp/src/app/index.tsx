@@ -1,5 +1,5 @@
-import { TodoList } from "../screens/TodoList";
+import { ProductCatalog } from "../screens/ProductCatalog";
 
 export default function Home() {
-  return <TodoList></TodoList>;
+  return <ProductCatalog></ProductCatalog>;
 }
